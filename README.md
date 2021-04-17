@@ -25,9 +25,8 @@ We also provide our client with an OBD library where they can diagnose their car
 ---
 ## Website Wireframe
 
-You can view our webpages Wire Frames from [HERE]().
+You can view our webpages Wire Frames from [HERE](https://miro.com/app/board/o9J_lJAc5RE=/).
 
-This is a sample for the Index Wire Frame.
 
 
 ---

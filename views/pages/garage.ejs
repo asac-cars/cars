@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Garage</h1>
+    <h2>
+        Saved Cars: <%= count %>
+    </h2>
+
+    <main>
+        <main>
+            <% cars.forEach(e => { %>
+            
+                <section class="container">
+
+                    <p>
+                        Result For : <%=e.vin %>
+                    </p>
+            
+                    <h3>
+                        Make: <%= e.make %>
+                    </h3>
+            
+                    <h3>
+                        Model: <%= e.model %>
+                    </h3>
+            
+                    <h3>
+                        Year: <%= e.year %>
+                    </h3>
+            
+                    <h3>
+                        Suggested Price: <%= e.price %>
+                    </h3>
+            
+                    <h3>
+                        Number Of Seats: <%= e.seats %>
+                    </h3>
+            
+                    <h3>
+                        Car Body : <%= e.style %>
+                    </h3>
+
+                    <button type="button"><a href="/myCars/<%=e.id%>"> View Car Details </a> </button>
+
+
+
+                </section>
+                
+
+
+            <% }); %>
+        </main>
+    </main>
+</body>
+</html>

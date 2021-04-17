@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <h1>History Result</h1>
+    </header>
+
+    <main>
+        <h4>
+           Odometer Reading: <%= report.odometer %> <%= report.odometerUnit %> 
+        </h4>
+
+        <h4>
+           Status: <%= report.status %>
+        </h4>
+
+        <h4>
+           Reporting Company:<%= report.reportingCompany %>
+        </h4>
+
+        <h4>
+            Last Insurance Company: <%= report.insurance%>
+        </h4>
+
+        <h4>
+            <%=report.insurance%> Email: <%= report.insuranceEmail %>
+        </h4>
+
+        <h4>
+            <%=report.insurance%> Phone: <%= report.insurancePhone %>
+        </h4>
+
+
+    </main>
+    
+</body>
+</html>
