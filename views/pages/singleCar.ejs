@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+
+    </header>
+
+
+
+
+    <main>
+
+        <p>
+            Result For : <%=data.vin %>
+        </p>
+
+        <h3>
+            Make: <%= data.make %>
+        </h3>
+
+        <h3>
+            Model: <%= data.model %>
+        </h3>
+
+        <h3>
+            Year: <%= data.year %>
+        </h3>
+
+        <h3>
+            Suggested Price: <%= data.price %>
+        </h3>
+
+        <h3>
+            Number Of Seats: <%= data.seats %>
+        </h3>
+
+        <h3>
+            Car Body : <%= data.style %>
+        </h3>
+
+
+        <section class="engine">
+
+            <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/engine-512.png" alt="">
+            <h3>
+                Engine : <%= data.engine%>
+            </h3>
+
+        </section>
+
+        <h2>
+            About The Car:
+        </h2>
+
+        <table>
+
+            <tr>
+                <th>
+                    Made in:
+                </th>
+
+                <td>
+                    <%= data.madein %>
+                </td>
+            </tr>
+
+            <tr>
+
+                <th>
+                    Fuel Capacity
+                </th>
+
+                <td>
+                    <%= data.fuelcapacity %>
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <th>
+                    Internal Fuel Consumption
+                </th>
+
+                <td>
+                    <%= data.fuelinternal %>
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <th>
+                    External Fuel Consumption
+                </th>
+
+                <td>
+                    <%= data.fuelexternal %>
+                </td>
+
+            </tr>
+
+            <tr>
+                <th>
+                    Transmission:
+                </th>
+
+                <td>
+                    <%= data.transmission%>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Alloy Wheels:
+                </th>
+
+                <td>
+                    <%= data.alloy_wheels %>
+                </td>
+            </tr>
+
+        </table>
+
+        <h2>
+            Car Equipments:
+        </h2>
+
+        <table>
+            <tr>
+                <th>
+                    Automatic Lights
+                </th>
+
+                <td>
+                    <%= data.automatic_headlights %>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    CD Player
+                </th>
+
+                <td>
+                    <%= data.cd_player %>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Child Safety Door Locks
+                </th>
+
+                <td>
+
+                    <%= data.child_safety_door_locks %>
+
+                </td>
+            </tr>
+
+            <tr>
+
+                <th>
+                    Fog Lights
+                </th>
+
+                <td>
+                    <%= data.foglights %>
+                </td>
+
+            </tr>
+
+            <tr>
+                <th>
+                    Cruise Control
+                </th>
+
+                <td>
+                    <%= data.cruise_control %>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Airbag
+                </th>
+
+                <td>
+                    <%= data.driverairbag %>
+                </td>
+            </tr>
+
+
+            <tr>
+                <th>
+                    Cooled Seats
+                </th>
+                <td>
+                    <%= data.cooled_seat %>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Heated Seats
+                </th>
+
+                <td>
+                    <%= data.heated_seat %>
+                </td>
+            </tr>
+
+
+            <tr>
+                <th>
+                    Parking Aid
+                </th>
+            <tr>
+                <%= data.parkingaid %>
+
+            </tr>
+            </tr>
+
+            <tr>
+                <th>
+                    Wood Trim
+                </th>
+
+                <td>
+                    <%= data.genuine_wood_trim %>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Heated Exterior Mirrors
+                </th>
+                <td>
+                    <%= data.heated_exterior_mirror %>
+                </td>
+            </tr>
+
+            <tr>
+
+                <th>
+                    Heated Steering Wheel
+                </th>
+
+                <td>
+
+                    <%= data.heated_steering_wheel %>
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <th>
+                    Keyless Entry
+                </th>
+
+                <td>
+
+                    <%= data.keyless_entry %>
+
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Leather Seat
+                </th>
+
+                <td>
+                    <%= data.leather_seat %>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    navigation aid
+                </th>
+
+                <td>
+                    <%= data.navigation_aid %>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Electric Power Windows
+                </th>
+                <td>
+                    <%= data.power_windows %>
+                </td>
+            </tr>
+
+
+        </table>
+
+        <button id="updateBtn"> Update Vehicle Information </button>
+
+        <form class="deleteForm" action="/myCars/<%= data.id %>?_method=DELETE" method="POST">
+            <button type="submit" class="ud_btn">Remove From Garage</button>
+        </form>
+
+
+
+        <form class="formUpdate" action="/myCars/<%= data.id %>?_method=PUT" method="POST">
+
+            <label for="vin"> VIN </label> <br>
+
+            <input name="vin" value="<%=data.vin %>"> <br>
+
+            <input name="make" value="<%= data.make %>">
+
+            <input name="model" value="<%= data.model %>">
+
+            <input name="year" value="<%= data.year %>">
+
+            <input name="price" value="<%= data.price %>">
+
+            <input name="seats" value="<%= data.seats %>">
+
+            <input name="style" value="<%= data.style %>">
+
+            <input name="engine" value="<%= data.engine%>">
+
+            <input name="madeIn" value="<%= data.madein %>">
+
+            <input name="fuelCapacity" value="<%= data.fuelcapacity %>">
+
+            <input name="fuelInternal" value="<%= data.fuelinternal %>">
+
+            <input name="fuelExternal" value="<%= data.fuelexternal %>">
+
+            <input name="transmission" value="<%= data.transmission%>">
+
+            <input name="alloy_wheels" value="<%= data.alloy_wheels %>">
+
+            <input name="automatic_headlights" value="<%= data.automatic_headlights %>">
+
+            <input name="cd_player" value="<%= data.cd_player %>">
+
+            <input name="child_safety_door_locks" value="<%= data.child_safety_door_locks %>">
+
+            <input name="fogLights" value="<%= data.foglights %>">
+
+            <input name="cruise_control" value="<%= data.cruise_control %>">
+
+            <input name="driverAirbag" value="<%= data.driverairbag %>">
+
+            <input name="cooled_seat" value="<%= data.cooled_seat %>">
+
+            <input name="heated_seat" value="<%= data.heated_seat %>">
+
+            <input name="parkingAid" value="<%= data.parkingaid %>">
+
+            <input name="genuine_wood_trim" value="<%= data.genuine_wood_trim %>">
+
+            <input name="heated_exterior_mirror" value="<%= data.heated_exterior_mirror %>">
+
+            <input name="heated_steering_wheel" value="<%= data.heated_steering_wheel %>">
+
+            <input name="keyless_entry" value="<%= data.keyless_entry %>">
+
+            <input name="leather_seat" value="<%= data.leather_seat %>">
+
+            <input name="navigation_aid" value="<%= data.navigation_aid %>">
+
+            <input name="power_windows" value="<%= data.power_windows %>">
+
+            <button type="submit"> Update Car Details </button>
+
+        </form>
+
+
+
+
+
+
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
