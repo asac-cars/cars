@@ -1,7 +1,7 @@
 'use strict';
-$('.updateForm').hide();
+$('#updateForm').hide();
 
-// $('#updateBtn').on('click', function(){
+$('#updateBtn').on('click', function(){
 
-//   $('.updateForm').toggle();
-// });
+  $('#updateForm').toggle();
+});
