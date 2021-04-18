@@ -1,25 +1,66 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <header>
 
-        <h1>OBD</h1>
-        
+<body>
+
+
+
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/history.css">
+    <title>History</title>
+</head>
+
+<body>
+
+    <header>
+        <img src="../../image/logo.png">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Car Search</a>
+            <a href="#">OBD</a>
+            <a href="#">Contact</a>
+        </nav>
     </header>
 
     <main>
-        <form action="/obdResult" method="POST">
-            <input type="text" name="obd" id="" placeholder="Insert OBD Code">
-            <button type="submit"> EXPLORE </button>
-        </form>
+        <section class="hero">
+            <div class="div-heading">
+                <h1>Vehicle History</h1>
+                <h2>Get robust vehicle specification data on color options, attributes, equipment details, recall
+                    information, warranties, and photos. Using your car's VIN code .</h2>
+            </div>
 
+            <div class="form">
+                <img src="../../image/patteren3.png">
+                <form action="/obdResult" method="POST">
+                    <input type="text" name="obd" id="" placeholder="OBD Code">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </section>
     </main>
-    
+
 </body>
+
 </html>
