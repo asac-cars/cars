@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <h1>
+            OBD RESULTS
+        </h1>
+    </header>
+
+    <main>
+
+        <h4>
+            Results for: <%= data.code %> 
+        </h4>
+
+        <h3>
+            Discovered Issue: <%= data.diagnosis %> 
+        </h3>
+
+        <p>
+            Date: <%= data.date %> 
+        </p>
+
+        <form action="/myMalfunctionList" method="POST">
+
+            <input name="code" value="<%= data.code %>" class="hidden">
+            <input name="diagnosis" value="<%= data.diagnosis %>" class="hidden">
+            <input name="date" value="<%= data.date %>" class="hidden">
+
+            <button type="submit"> Save the Issue </button>
+
+        </form>
+
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+    
+</body>
+</html>
