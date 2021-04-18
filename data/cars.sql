@@ -34,3 +34,17 @@ create table cars (
     power_windows VARCHAR(255)
 
 );
+
+DROP TABLE IF EXISTS obd;
+create table obd (
+
+    id SERIAL primary key not null,
+
+    code VARCHAR(255),
+
+    diagnosis VARCHAR(255),
+
+    date VARCHAR(255)
+
+
+)

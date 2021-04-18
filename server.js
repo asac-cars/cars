@@ -24,6 +24,10 @@ const pg = require('pg');
 // Method Override
 const methodOverride = require('method-override');
 
+//Axios
+
+const axios = require('axios');
+
 
 
 /////////////////////////////
@@ -69,6 +73,8 @@ app.use(express.static('./public'));
 app.set('view engine', 'ejs');
 
 
+
+
 ////////////////////
 //// ROUTES  //////
 //////////////////
@@ -87,6 +93,19 @@ app.get('/obd', obdHandler);
 
 app.post('/obdResult', obdResultHandler);
 
+app.get('/malfunctionList',malfunctionHandler);
+
+app.post('/myMalfunctionList',myMalfunctionHandler);
+
+app.get('/myMalfunctionList/:id', singleMalfunctionHandler);
+
+app.get('/editMalfunctionList/:id', editMalfunctionHandler);
+
+app.delete('/editMalfunctionList/:id', deleteObdHandler);
+
+app.put('/editMalfunctionList/:id', updateObdHandler);
+
+
 app.get('/charge', chargeHandler);
 
 // Garage
@@ -100,6 +119,8 @@ app.get('/myCars/:id', singleCarHandler);
 app.put('/myCars/:id', updateHandler);
 
 app.delete('/myCars/:id', deleteHandler);
+
+app.get('/whatCar', whatCarIsThat);
 
 // app.get('*', notFoundHandler);
 
@@ -218,8 +239,7 @@ function obdResultHandler(req, res) {
   let url = `https://api.carsxe.com/obdcodesdecoder?key=${key}&code=${obd}`;
 
 
-  superagent.get(url).then(data => {
-    res.send(data.body);
+
   });
 
   // superagent.get(url).then(obdData=>{
@@ -229,7 +249,7 @@ function obdResultHandler(req, res) {
 
 }
 
-function chargeHandler(req, res) {
+
   res.render('pages/charge');
 }
 
@@ -320,6 +340,51 @@ function deleteHandler(req, res) {
   let value = [req.params.id];
   client.query(SQL, value).then(res.redirect('/garage'));
 }
+
+// http://api.carsxe.com/whatcaristhat?key=<CarsXE_API_Key>&body=
+
+function whatCarIsThat (req,res){
+
+
+  res.render('pages/whatCar');
+  // let key= process.env.API_KEY;
+  // let body=`https://upload.wikimedia.org/wikipedia/commons/4/44/2019_Acura_RDX_A-Spec_front_red_4.2.18.jpg`;
+  // let url= `http://api.carsxe.com/whatcaristhat?key=${key}&body=${body}`;
+
+
+
+  // superagent.get(url).then(data=>{
+  //   console.log(data.body);
+  //   res.send(data.body);
+  // }).catch(err=>{
+  //   console.log(err);
+  //   res.send(err);
+  // });
+  // superagent.post(url).send({body:'https://upload.wikimedia.org/wikipedia/commons/4/44/2019_Acura_RDX_A-Spec_front_red_4.2.18.jpg'}).end((err,data)=>{
+  //   console.log(data);
+  //   res.send(data);
+  // });
+}
+
+
+app.get('/whatCarResult', (req,res)=>{
+
+  let link= req.query;
+
+  let key= process.env.API_KEY;
+
+  axios.post(`http://api.carsxe.com/whatcaristhat?key=${key}`, {
+    body: link.link
+  })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+});
+
 
 ///////////////////////
 //// Constructor  ////
@@ -416,6 +481,14 @@ function Report(data) {
 }
 
 
+function OBD (data){
+
+  this.code=data.code;
+  this.diagnosis=data.diagnosis;
+  this.date=new Date(data.date).toString().slice(0,15);
+}
+
+// this.time = new Date(data.valid_date).toString().slice(0, 15);
 
 
 /////////////////////////////

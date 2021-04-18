@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+
+        <h2>
+            Number of Saved Malfunctions: <%= count %> 
+        </h2>
+
+    </header>
+
+    <main>
+
+
+
+        <% data.forEach(e=>{ %>
+
+            <section class="obdContainer">
+
+                <p>
+                    OBD CODE: <%= e.code %> 
+                </p>
+
+                <h3>
+                    Issue: <%= e.diagnosis %> 
+                </h3>
+
+                <h4>
+                    Date Of Issue: <%= e.date %> 
+                </h4>
+
+                <button type="button"><a href="/editMalfunctionList/<%=e.id%>"> Update Malfunction </a> </button>
+
+
+
+
+            </section>
+
+        <% }) %> 
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
