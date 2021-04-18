@@ -1,0 +1,329 @@
+* {
+    box-sizing: border-box;
+}
+  
+body{
+    background-color: #e6e7e8; 
+  margin-right: 0%;
+}
+  
+  .hero {
+    background-image: url("../image/hero3.png");
+    height: 100vh;
+    width: 95.3vw;
+    margin: auto;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+  
+  .tri {
+    position:absolute;
+    top:82.7vh;
+    width: 100%;
+    height: 15%;
+  }
+  
+  .suduMain{
+  position:absolute;
+  top:96.9vh;
+  width: 100%;
+  height:100%;
+  background-color: #e6e7e8;
+  }
+  
+  /*--------hero text*/
+  
+  h1 {
+    position:absolute;
+  top:35vh;
+  left: 10vw;
+  font-size:7.5vw;
+    color: #e8e6e6;
+  }
+  
+  .hero h2 {
+    position:absolute;
+    top:50vh;
+    left: 10vw;
+    font-size:4vw;
+      color: #e8e6e6;
+  }
+  
+  /*cursor animation*/
+  #container
+  {
+    display: inline;
+  }
+  
+  #text {
+    color: white;
+    display: inline-block;
+    border-right: 3px solid #2980b9;
+    text-decoration: underline;
+    }
+  
+  
+  /*--------------------nav */
+  header {
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 27vw;
+    margin: 6vh;
+    z-index: 1;
+  }
+  
+  header img {
+  width: 18vw;
+  margin-left: 2vw;
+  }
+  
+  nav {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    column-gap: 4vw;
+    line-height: 10vh;
+  
+  }
+  
+  nav a {
+    text-decoration: none;
+    font-size: 1.6vw;
+    color: white;
+  }
+  
+  
+  /* ----------------page content */
+  
+  /* -----------section 1 (intro*/
+  .motoDial_Info
+  {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    column-gap: 8%;
+    margin: 8% 4%;
+  }
+  
+  .motoDial_Info img {
+    width: 90%;
+  }
+  
+  
+  .motoDial_Info p:nth-child(1){
+    margin-bottom: 10%;
+    font-size: 3vw;
+  }
+  
+  .motoDial_Info p:nth-child(2){
+    font-size: 1.5vw;
+  
+  }
+  
+  /*-------------section 2 (services) */
+  
+  .features {
+    background-color: #e6e7e8;
+  }
+  
+  .features .background-sec {
+  background-image: url("../image/blueshape6.png");
+  box-shadow: 0px -27px 39px -19px rgba(0,0,0,0.61);
+  background-repeat: no-repeat;
+  height: 135vh;
+  }
+  
+  .background-sec p:nth-child(1) {
+    font-size:5vw;
+    color: white;
+    text-align: center;
+    padding-bottom: 2.5%;
+  }
+  
+    .background-sec
+    {
+      padding-top: 2.7%;
+    }
+  
+    /*--------services cards */
+  
+    .icons{
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      column-gap: 5%;
+      padding: 5%;
+      padding-top: 1%;
+    }
+  
+  .card {
+    background-color: rgb(127, 127, 167);
+    background-image: url("../image/card.png");
+    height: 52vh;
+    width: 110%;
+    border-radius: 0% 10%;
+    box-shadow: 5px 5px 34px -5px #000000;
+  }
+  
+  .card p:nth-child(2)
+  {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    height: 15%;
+  }
+  
+  
+  /* icons*/
+  
+  .heading div {
+    background-color: #469e9e;
+  border-radius: 50%;
+  padding: 5%;
+  width: 25%;
+  margin: 11%;
+  box-shadow: 4px 4px 25px -5px #000000;
+  border: 5px solid rgb(253, 252, 253);
+  
+  }
+  
+  
+  .card:nth-child(even) .heading div
+  {
+  background-color: rgb(127, 127, 167);
+  }
+  
+  .card div img {
+    width: 100%;
+  }
+  
+  
+  
+  /*button*/
+  
+  button {
+      box-shadow: 0px -3px 7px 0px #5b5c5c;
+      background:linear-gradient(to bottom, rgb(83, 83, 104) 5%, #012a4e 100%);
+      background-color:#2dabf9;
+      border-radius:3px;
+      border:1px solid #6d6c6c;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff;
+      font-family:Arial;
+      font-size:15px;
+      padding:4% 12%;
+      text-decoration:none;
+      text-shadow:0px 1px 0px #263666;
+    transition: transform .7s;
+    margin-top: 15% ;
+    margin-left: 35%;
+  }
+  button:hover {
+    transform: scale(1.019); 
+  }
+  
+  button a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  /* card heading*/
+  
+  .heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%;}
+  
+   .heading p {
+     font-size: 1.65vw;
+   }
+  
+  
+  
+  /* ------------footer */
+  .footer {
+    height: 70vh;
+  background-image:url("../image/grayshape6.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
+  }
+  
+  .footer-content{
+    position: relative;
+    top: 34vh;
+    left: 12vw;
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-lists{
+  display: grid;
+  grid-template-columns: 35% 35% 35%;
+  margin-bottom: 2em;
+  }
+  
+  .footer-lists div:last-child div{
+    display: flex;
+  }
+  .copy-right{
+  width: auto;
+  margin:auto;
+  }
+  
+  
+  .footer-lists div p {
+  width:65%;
+  padding-bottom: 1em;
+  padding-left: .8em;
+  border-bottom: 2px solid navy;
+  margin-bottom: .8em;
+  }
+  
+  .footer-lists a {
+    cursor: pointer;
+    display: block;
+    margin: .7em ;
+  }
+  
+  .footer img {
+  width: 25%;
+  }
+  
+  footer a {
+    margin: 10%;
+    }
+    
+  footer i {
+  color: #617dd8;
+  }
+  
+  
+  
+    
+  /* 
+  #flip {
+    height:50px;
+    overflow:hidden;
+  }
+  #flip > div > div{
+    color:black;
+    display:inline-block;
+  }
+  #flip div:first-child {
+    animation: show 5s linear infinite;
+  }
+  @keyframes show {
+    0% {margin-top:-270px;}
+    5% {margin-top:-180px;}
+    33% {margin-top:-180px;}
+    38% {margin-top:-90px;}
+    66% {margin-top:-90px;}
+    71% {margin-top:0px;}
+    99.99% {margin-top:0px;}
+    100% {margin-top:-270px;}
+  } */
