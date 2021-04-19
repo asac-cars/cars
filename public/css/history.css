@@ -87,11 +87,11 @@
     opacity: .5;
   }
 
-  .form1{
+  .div-heading{
     opacity: 0;
     animation: fadeIn 1s ease-in both;
   }
-  .form1 {
+  .div-heading {
     animation-delay: 0.5s;
   }
   
@@ -134,3 +134,4 @@
     font-size: 1.6vw;
     color: white;
   }
+
