@@ -1,402 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/spec.css" />
+    <title>Car Spec Result</title>
+  </head>
 
-    <header>
-        <h1>Car Specification</h1>
-    </header>
 
+
+  <body>
     <main>
+      <img class="car" src="../../image/boghati5.png" />
 
-        <p>
-            Result For : <%=data.vin %>
-        </p>
+      <section class="content">
 
-        <h3>
-            Make: <%= data.make %>
-        </h3>
+        <header>
+          <img src="../../image/logo.png" />
+          <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Car Search</a>
+            <a href="#">OBD</a>
+            <a href="#">Contact</a>
+          </nav>
+        </header>
 
-        <h3>
-            Model: <%= data.model %>
-        </h3>
+        <section class="sudo-main">
 
-        <h3>
-            Year: <%= data.year %>
-        </h3>
+          <h1>Car Specifications</h1>
 
-        <h3>
-            Suggested Price: <%= data.price %>
-        </h3>
+          <div>
+            <p><%=data.vin %></p>
 
-        <h3>
-            Number Of Seats: <%= data.seats %>
-        </h3>
+            <form action="/myCars" method="POST">
+                <input name="vin" value="<%=data.vin %>" class="hidden" />
+    
+                <input name="make" value="<%= data.make %>" class="hidden" />
+    
+                <input name="model" value="<%= data.model %>" class="hidden" />
+    
+                <input name="year" value="<%= data.year %>" class="hidden" />
+    
+                <input name="price" value="<%= data.price %>" class="hidden" />
+    
+                <input name="seats" value="<%= data.seats %>" class="hidden" />
+    
+                <input name="style" value="<%= data.style %>" class="hidden" />
+    
+                <input name="engine" value="<%= data.engine%>" class="hidden" />
+    
+                <input name="madeIn" value="<%= data.madeIn %>" class="hidden" />
+    
+                <input
+                  name="fuelCapacity"
+                  value="<%= data.fuelCapacity %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="fuelInternal"
+                  value="<%= data.fuelInternal %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="fuelExternal"
+                  value="<%= data.fuelExternal %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="transmission"
+                  value="<%= data.transmission%>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="alloy_wheels"
+                  value="<%= data.alloy_wheels %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="automatic_headlights"
+                  value="<%= data.automatic_headlights %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="cd_player"
+                  value="<%= data.cd_player %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="child_safety_door_locks"
+                  value="<%= data.child_safety_door_locks %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="fogLights"
+                  value="<%= data.fogLights %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="cruise_control"
+                  value="<%= data.cruise_control %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="driverAirbag"
+                  value="<%= data.driverAirbag %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="passenger_airbag"
+                  value="<% data.passenger_airbag %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="cooled_seat"
+                  value="<%= data.cooled_seat %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="heated_seat"
+                  value="<%= data.heated_seat %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="parkingAid"
+                  value="<%= data.parkingAid %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="genuine_wood_trim"
+                  value="<%= data.genuine_wood_trim %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="heated_exterior_mirror"
+                  value="<%= data.heated_exterior_mirror %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="heated_steering_wheel"
+                  value="<%= data.heated_steering_wheel %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="keyless_entry"
+                  value="<%= data.keyless_entry %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="leather_seat"
+                  value="<%= data.leather_seat %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="navigation_aid"
+                  value="<%= data.navigation_aid %>"
+                  class="hidden"
+                />
+    
+                <input
+                  name="power_windows"
+                  value="<%= data.power_windows %>"
+                  class="hidden"
+                />
+    
+                <button type="submit">Add to Garage</button>
+    
+              </form>
 
-        <h3>
-            Car Body : <%= data.style %>
-        </h3>
+          </div>
 
+          <section class="tables">
+          <table>
+            <tr>
+              <th>Model</th>
+              <td> <%= data.model %> <%= data.year %></td>
+            </tr>
+            
 
-        <section class="engine">
+            <tr>
+              <th>manufacturer</th>
+              <td><%= data.madeIn %> <%= data.make %></td>
+            </tr>
 
-            <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/engine-512.png" alt="">
-            <h3>
-                <%= data.engine%>
-            </h3>
+            <tr>
+              <th>Transmission</th>
+              <td><%= data.transmission%></td>
+            </tr>
+
+            <tr>
+              <th>Suggested Price</th>
+              <td><%= data.price %></td>
+            </tr>
+
+            <tr>
+              <th>Car Body</th>
+              <td><%= data.style %></td>
+            </tr>
+            
+            <tr>
+              <th>Number Of Seats</th>
+              <td>data.seats</td>
+            </tr>
+
+            <tr>
+              <th>Child Safety Door Locks</th>
+
+              <td><%= data.child_safety_door_locks %></td>
+            </tr>
+
+            <tr>
+              <th>CD Player</th>
+
+              <td><%= data.cd_player %></td>
+            </tr>
+
+            <tr>
+              <th>Heated Exterior Mirrors</th>
+              <td><%= data.heated_exterior_mirror %></td>
+            </tr>
+            
+            <tr>
+              <th>Airbag</th>
+              <td><%= data.driverAirbag %></td>
+            </tr>
+
+            
+            <tr>
+              <th>Parking Aid</th>
+              <td><%= data.parkingAid %></td>
+            </tr>
+
+            <tr>
+              <th>Cruise Control</th>
+              <td><%= data.cruise_control %></td>
+            </tr>
+
+            <tr>
+              <th>Fog Lights</th>
+              <td><%= data.fogLights %></td>
+            </tr>
+
+            <tr>
+              <th>Heated Seats</th>
+              <td><%= data.heated_seat %></td>
+            </tr>
+
+            <tr>
+              <th>navigation aid</th>
+              <td><%= data.navigation_aid %></td>
+            </tr>
+
+            <tr>
+              <th>Keyless Entry</th>
+              <td><%= data.keyless_entry %> </td>
+          </tr>
+          </table>
+
 
         </section>
-
-        <h2>
-            About The Car:
-        </h2>
-
-        <table>
-
-            <tr>
-                <th>
-                    Made in:
-                </th>
-
-                <td>
-                    <%= data.madeIn %>
-                </td>
-            </tr>
-
-            <tr>
-
-                <th>
-                    Fuel Capacity                
-                </th>
-
-                <td>
-                    <%= data.fuelCapacity %>
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <th>
-                    Internal Fuel Consumption               
-                </th>
-
-                <td>
-                    <%= data.fuelInternal %>
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <th>
-                    External Fuel Consumption
-                </th>
-
-                <td>
-                    <%= data.fuelExternal %>
-                </td>
-
-            </tr>
-
-            <tr>
-                <th>
-                    Transmission:
-                </th>
-
-                <td>
-                    <%= data.transmission%>
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Alloy Wheels:
-                </th>
-
-                <td>
-                    <%= data.alloy_wheels %> 
-                </td>
-            </tr>
-
-        </table>
-
-        <h2>
-            Car Equipments:
-        </h2>
-
-        <table>
-
-            <tr>
-                <th>
-                    Automatic Lights
-                </th>
-
-                <td>
-                    <%= data.automatic_headlights %> 
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    CD Player
-                </th>
-
-                <td>
-                    <%= data.cd_player %> 
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Child Safety Door Locks
-                </th>
-
-                <td>
-
-                    <%= data.child_safety_door_locks %> 
-
-                </td>
-            </tr>
-
-            <tr>
-
-                <th>
-                    Fog Lights
-                </th>
-
-                <td>
-                    <%= data.fogLights %> 
-                </td>
-
-            </tr>
-
-            <tr>
-                <th>
-                    Cruise Control
-                </th>
-
-                <td>
-                    <%= data.cruise_control %> 
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                     Airbag
-                </th>
-
-                <td>
-                    <%= data.driverAirbag %> 
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Cooled Seats
-                </th>
-                <td>
-                    <%= data.cooled_seat %> 
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Heated Seats
-                </th>
-
-                <td>
-                    <%= data.heated_seat %> 
-                </td>
-            </tr>
-
-
-            <tr>
-                <th>
-                    Parking Aid
-                </th>
-                <tr>
-                    <%= data.parkingAid %> 
-
-                </tr>
-            </tr>
-
-            <tr>
-                <th>
-                    Wood Trim
-                </th>
-
-                <td>
-                    <%= data.genuine_wood_trim %> 
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Heated Exterior Mirrors
-                </th>
-                <td>
-                    <%= data.heated_exterior_mirror %> 
-                </td>
-            </tr>
-
-            <tr>
-
-                <th>
-                    Heated Steering Wheel
-                </th>
-
-                <td>
-
-                    <%= data.heated_steering_wheel %> 
-
-                </td>
-
-            </tr>
-
-            <tr>
-                <th>
-                    Keyless Entry
-                </th>
-
-                <td>
-
-                    <%= data.keyless_entry %> 
-
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Leather Seat
-                </th>
-
-                <td>
-                    <%= data.leather_seat %> 
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    navigation aid
-                </th>
-
-                <td>
-                    <%= data.navigation_aid %> 
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Electric Power Windows
-                </th>
-                <td>
-                    <%= data.power_windows %> 
-                </td>
-            </tr>
-
-
-        </table>
-
-        <form action="/myCars" method="POST">
-
-            <input name="vin" value="<%=data.vin %>" class="hidden">
-
-            <input name="make" value="<%= data.make %>" class="hidden">
-
-            <input name="model" value="<%= data.model %>" class="hidden">
-
-            <input name="year" value="<%= data.year %>" class="hidden">
-
-            <input name="price" value="<%= data.price %>" class="hidden">
-
-            <input name="seats" value="<%= data.seats %>" class="hidden">
-
-            <input name="style" value="<%= data.style %>" class="hidden">
-
-            <input name="engine" value="<%= data.engine%>" class="hidden">
-
-            <input name="madeIn" value="<%= data.madeIn %>" class="hidden">
-
-            <input name="fuelCapacity" value="<%= data.fuelCapacity %>" class="hidden">
-
-            <input name="fuelInternal" value="<%= data.fuelInternal %>" class="hidden">
-
-            <input name="fuelExternal" value="<%= data.fuelExternal %>" class="hidden">
-
-            <input name="transmission" value="<%= data.transmission%>" class="hidden">
-
-            <input name="alloy_wheels" value="<%= data.alloy_wheels %>" class="hidden">
-
-            <input name="automatic_headlights" value="<%= data.automatic_headlights %>" class="hidden">
-
-            <input name="cd_player" value="<%= data.cd_player %>" class="hidden">
-
-            <input name="child_safety_door_locks" value="<%= data.child_safety_door_locks %>" class="hidden">
-
-            <input name="fogLights" value="<%= data.fogLights %>" class="hidden">
-
-            <input name="cruise_control" value="<%= data.cruise_control %>" class="hidden">
-
-            <input name="driverAirbag" value="<%= data.driverAirbag %>" class="hidden">
-
-            <input name="passenger_airbag" value="<% data.passenger_airbag %>" class="hidden">
-
-            <input name="cooled_seat" value="<%= data.cooled_seat %>" class="hidden">
-
-            <input name="heated_seat" value="<%= data.heated_seat %>" class="hidden">
-
-            <input name="parkingAid" value="<%= data.parkingAid %>" class="hidden">
-
-            <input name="genuine_wood_trim" value="<%= data.genuine_wood_trim %>" class="hidden">
-
-            <input name="heated_exterior_mirror" value="<%= data.heated_exterior_mirror %>" class="hidden">
-
-            <input name="heated_steering_wheel" value="<%= data.heated_steering_wheel %>" class="hidden">
-
-            <input name="keyless_entry" value="<%= data.keyless_entry %>" class="hidden">
-
-            <input name="leather_seat" value="<%= data.leather_seat %>" class="hidden">
-
-            <input name="navigation_aid" value="<%= data.navigation_aid %>" class="hidden">
-
-            <input name="power_windows" value="<%= data.power_windows %>" class="hidden">
-
-            <button type="submit"> Add to Garage </button>
-
-
-
-
-
-
-
-
-
+        </section>
         
+<footer>
+  <div>
+    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="#" class="google"><i class="fa fa-google"></i></a>
+    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  </div>
+  
+  <div  class="copy-right">
+    <p>Copyright 2021 &copy; All Rights Reserved</p>
+  </div>
+  </footer>
+
+      </section>
 
 
 
+      <section class="blue-section">
+        <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+
+          6.0 L
 
 
+          </text>
+        </svg>
 
+        <svg class="radial-progress" data-percentage="42" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+            12 mi/gal
+          </text>
+        </svg>
 
-        </form>
+        <svg class="radial-progress" data-percentage="62" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+            24.00 gal
+          </text>
+        </svg>
 
+        <svg class="radial-progress" data-percentage="72" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+            24.00 gal
+          </text>
+        </svg>
 
+        <p class="data1"><span>Engine</span> <br />6.0L W12 DOHC 48V TURBO</p>
+        <p class="data2"><span>Fuel Internal</span> <br />12 mi/gal</p>
+        <p class="data3">
+          <span>Fuel Capacity</span> <br />
+          24.00 gallon
+        </p>
 
-
-
-
-
-
-
+        <h3>Bentley Continental GT</h3>
+      </section>
     </main>
-</body>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../../js/ring.js"></script>
+  </body>
 </html>
