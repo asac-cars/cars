@@ -65,3 +65,15 @@ function Delete() {
 
 // Start the typing effect on load
 intervalValue = setInterval(Type, 100);
+
+//scrollable animation
+$(document).on('scroll', function () {
+  let pageTop = $(document).scrollTop();
+  let pageBottom = pageTop + $(window).height();
+  let card = $('.card');
+  if ($(card).position().top < pageBottom) {
+    $(card).addClass('visible');
+  } else {
+    $(card).removeClass('visible');
+  }
+});
