@@ -272,3 +272,18 @@
     text-anchor: middle;
     font-size: .8em;
     text-shadow: 0 0 20px #fff, 0 0 30px #444344, 0 0 40px #f5eef1, 0 0 50px #fcfafb, 0 0 60px #acaaab, 0 0 70px #faf7f8, 0 0 80px #fffafd;}
+
+
+    .car {  
+      animation-name: floating;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      margin-left: 30px;
+      margin-top: 5px;
+  }
+  @keyframes floating {
+      0% { transform: translate(0,  0px); }
+      50%  { transform: translate(0, 15px); }
+      100%   { transform: translate(0, -0px); }    
+  }
