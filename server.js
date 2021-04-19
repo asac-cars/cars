@@ -24,9 +24,6 @@ const pg = require('pg');
 // Method Override
 const methodOverride = require('method-override');
 
-//Axios
-
-const axios = require('axios');
 
 
 
@@ -72,20 +69,34 @@ app.set('view engine', 'ejs');
 //// ROUTES  //////
 //////////////////
 
+//=====================Home Page
 app.get('/', homeHandler);
 
+//================Specifications
+
+//Spec Search
 app.get('/specification', specHandler);
 
-app.get('/specificationresult', specificationHandler); // Create Page for the user to search for a car // create a page to show results
+// Spec Result
+app.get('/specificationresult', specificationHandler);
 
-app.get('/carfax', carfaxHandler); // Create Page for the user to search Carfax // create page to show result
+//====================Car History
 
+//History Search
+app.get('/carfax', carfaxHandler);
+
+//History Result
 app.get('/historyData', historyDataHandler);
 
+//======================== OBD
+
+//Obd Search
 app.get('/obd', obdHandler);
 
+// OBD Result
 app.post('/obdResult', obdResultHandler);
 
+//Redirect user to all saved the issues
 app.get('/malfunctionList',malfunctionHandler);
 
 app.post('/myMalfunctionList',myMalfunctionHandler);
@@ -98,10 +109,7 @@ app.delete('/editMalfunctionList/:id', deleteObdHandler);
 
 app.put('/editMalfunctionList/:id', updateObdHandler);
 
-
 app.get('/charge', chargeHandler);
-
-// Garage
 
 app.get('/garage', garageHandler);
 
@@ -109,11 +117,11 @@ app.post('/myCars', myCarsHandler);
 
 app.get('/myCars/:id', singleCarHandler);
 
-app.put('/myCars/:id', updateHandler);
+app.get('/updateCar/:id', updateCarHandler);
 
-app.delete('/myCars/:id', deleteHandler);
+app.put('/updateCar/:id', editCarHandler);
 
-app.get('/whatCar', whatCarIsThat);
+app.delete('/updateCar/:id', deleteCarHandler);
 
 // app.get('*', notFoundHandler);
 
@@ -159,12 +167,9 @@ function specificationHandler(req,res){
   }).catch(error => {
     res.send(error);
   });
-
-
-
 }
 
-// Carfax
+// CarFax
 //localhost:7777/specification
 
 function carfaxHandler (req,res){
@@ -240,12 +245,6 @@ function obdResultHandler(req,res){
 
     res.render('pages/obdResult',{data:correctData});
   });
-
-  // superagent.get(url).then(obdData=>{
-  //   let obdDataBody= obd
-  // });
-
-
 }
 
 function malfunctionHandler (req,res){
@@ -254,8 +253,6 @@ function malfunctionHandler (req,res){
   let SQL= `SELECT * FROM obd;`;
 
   client.query(SQL).then(data=>{
-
-    // res.send(data.rows);
     res.render('pages/malfunctionList', {data:data.rows, count:data.rows.length});
   });
 
@@ -295,7 +292,6 @@ function singleMalfunctionHandler (req,res){
   const SQL= `SELECT * from obd WHERE id=${req.params.id};`;
 
   client.query(SQL).then(result=>{
-    // res.send(result.rows[0]);
     res.render('pages/singleMalfunction', {data:result.rows[0]});
   });
 }
@@ -328,7 +324,6 @@ function updateObdHandler (req,res){
   const safeValues= [code,diagnosis,date,id];
 
   client.query(SQL,safeValues).then(()=>{
-    // res.redirect(`/editMalfunctionList/${id}`);
     res.redirect(`/malfunctionList`);
   });
 
@@ -339,20 +334,6 @@ function chargeHandler(req,res){
   res.render('pages/charge');
 }
 
-// function chargeResultHandler(req, res){
-//   let location= req.query.city;
-
-//   let key= process.env.CHARGE_API;
-
-//   // let url =`https://api.openchargemap.io/v3/poi/?output=json&latitude=31.9539&longitude=35.9106&maxresults=10&key=a8498b9c-341a-41b3-9e23-d55e7e4fff5c`;
-
-//   let url =`https://api.openchargemap.io/v3/poi/?output=json&countrycode=${location}&maxresults=10&key=${key}`;
-
-//   superagent.get(url).then(mapData=>{
-//     let mapDataBody= mapData.body;
-
-//   })
-// }
 
 // http://localhost:7777/garage
 
@@ -361,8 +342,6 @@ function garageHandler (req,res){
   const SQL = `SELECT * FROM cars;`;
 
   client.query(SQL).then(data=>{
-
-    // res.send(data.rows);
     res.render('pages/garage', {cars:data.rows, count:data.rows.length});
   });
 
@@ -388,7 +367,7 @@ function myCarsHandler(req,res){
     } else{
       client.query(SQL,safeValues).then(result=>{
         id =result.rows[0].id;
-        res.redirect(`/myCars/${id}`);
+        res.redirect(`/garage`);
       });
     }
 
@@ -400,12 +379,21 @@ function singleCarHandler (req,res){
   const SQL= `SELECT * from cars WHERE id=${req.params.id};`;
 
   client.query(SQL).then(result=>{
-    // res.send(result.rows[0]);
     res.render('pages/singleCar', {data:result.rows[0]});
   });
 }
 
-function updateHandler (req,res){
+function updateCarHandler(req,res){
+  const SQL= `SELECT * from cars WHERE id=${req.params.id};`;
+
+
+  client.query(SQL).then(result=>{
+    res.render('pages/updateCar', {data:result.rows[0]});
+  });
+}
+
+function editCarHandler (req,res){
+
   let id= req.params.id;
 
   let SQL = `UPDATE cars SET vin=$1, year=$2, make=$3, model=$4 ,engine=$5, style=$6, madeIn=$7, fuelCapacity=$8, fuelInternal=$9,fuelExternal=$10,transmission=$11,seats=$12, price=$13 ,alloy_wheels=$14 , automatic_headlights=$15, cd_player=$16, child_safety_door_locks=$17,fogLights=$18,cruise_control=$19,driverAirbag=$20,passenger_airbag=$21,cooled_seat=$22,heated_seat=$23,parkingAid=$24,genuine_wood_trim=$25,heated_exterior_mirror=$26,heated_steering_wheel=$27,keyless_entry=$28,leather_seat=$29,navigation_aid=$30,power_windows=$31 WHERE id=$32;`;
@@ -415,62 +403,18 @@ function updateHandler (req,res){
   const safeValues= [vin, year, make, model ,engine, style, madeIn, fuelCapacity, fuelInternal,fuelExternal,transmission,seats, price,alloy_wheels, automatic_headlights, cd_player, child_safety_door_locks,fogLights,cruise_control,driverAirbag,passenger_airbag,cooled_seat,heated_seat,parkingAid,genuine_wood_trim,heated_exterior_mirror,heated_steering_wheel,keyless_entry,leather_seat,navigation_aid,power_windows,id];
 
   client.query(SQL,safeValues).then(()=>{
-    res.redirect(`/myCars/${id}`);
+    res.redirect(`/updateCar/${id}`);
   });
 
 }
 
+function deleteCarHandler (req,res){
 
-function deleteHandler(req,res) {
   let SQL = `DELETE FROM cars WHERE id=$1;`;
   let value = [req.params.id];
   client.query(SQL,value).then(res.redirect('/garage'));
+
 }
-
-// http://api.carsxe.com/whatcaristhat?key=<CarsXE_API_Key>&body=
-
-function whatCarIsThat (req,res){
-
-
-  res.render('pages/whatCar');
-  // let key= process.env.API_KEY;
-  // let body=`https://upload.wikimedia.org/wikipedia/commons/4/44/2019_Acura_RDX_A-Spec_front_red_4.2.18.jpg`;
-  // let url= `http://api.carsxe.com/whatcaristhat?key=${key}&body=${body}`;
-
-
-
-  // superagent.get(url).then(data=>{
-  //   console.log(data.body);
-  //   res.send(data.body);
-  // }).catch(err=>{
-  //   console.log(err);
-  //   res.send(err);
-  // });
-  // superagent.post(url).send({body:'https://upload.wikimedia.org/wikipedia/commons/4/44/2019_Acura_RDX_A-Spec_front_red_4.2.18.jpg'}).end((err,data)=>{
-  //   console.log(data);
-  //   res.send(data);
-  // });
-}
-
-
-app.get('/whatCarResult', (req,res)=>{
-
-  let link= req.query;
-
-  let key= process.env.API_KEY;
-
-  axios.post(`http://api.carsxe.com/whatcaristhat?key=${key}`, {
-    body: link.link
-  })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
-});
-
 
 ///////////////////////
 //// Constructor  ////

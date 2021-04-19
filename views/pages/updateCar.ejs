@@ -310,7 +310,83 @@
 
         </table>
 
-    </section>
+        <form class="deleteForm" action="/updateCar/<%= data.id %>?_method=DELETE" method="POST">
+            <button type="submit" class="ud_btn">Remove From Garage</button>
+        </form>
+
+
+
+
+        <form class="formUpdate" action="/updateCar/<%= data.id %>?_method=PUT" method="POST">
+
+            <label for="vin"> VIN </label> <br>
+
+            <input name="vin" value="<%=data.vin %>"> <br>
+
+            <input name="make" value="<%= data.make %>">
+
+            <input name="model" value="<%= data.model %>">
+
+            <input name="year" value="<%= data.year %>">
+
+            <input name="price" value="<%= data.price %>">
+
+            <input name="seats" value="<%= data.seats %>">
+
+            <input name="style" value="<%= data.style %>">
+
+            <input name="engine" value="<%= data.engine%>">
+
+            <input name="madeIn" value="<%= data.madein %>">
+
+            <input name="fuelCapacity" value="<%= data.fuelcapacity %>">
+
+            <input name="fuelInternal" value="<%= data.fuelinternal %>">
+
+            <input name="fuelExternal" value="<%= data.fuelexternal %>">
+
+            <input name="transmission" value="<%= data.transmission%>">
+
+            <input name="alloy_wheels" value="<%= data.alloy_wheels %>">
+
+            <input name="automatic_headlights" value="<%= data.automatic_headlights %>">
+
+            <input name="cd_player" value="<%= data.cd_player %>">
+
+            <input name="child_safety_door_locks" value="<%= data.child_safety_door_locks %>">
+
+            <input name="fogLights" value="<%= data.foglights %>">
+
+            <input name="cruise_control" value="<%= data.cruise_control %>">
+
+            <input name="driverAirbag" value="<%= data.driverairbag %>">
+
+            <input name="cooled_seat" value="<%= data.cooled_seat %>">
+
+            <input name="heated_seat" value="<%= data.heated_seat %>">
+
+            <input name="parkingAid" value="<%= data.parkingaid %>">
+
+            <input name="genuine_wood_trim" value="<%= data.genuine_wood_trim %>">
+
+            <input name="heated_exterior_mirror" value="<%= data.heated_exterior_mirror %>">
+
+            <input name="heated_steering_wheel" value="<%= data.heated_steering_wheel %>">
+
+            <input name="keyless_entry" value="<%= data.keyless_entry %>">
+
+            <input name="leather_seat" value="<%= data.leather_seat %>">
+
+            <input name="navigation_aid" value="<%= data.navigation_aid %>">
+
+            <input name="power_windows" value="<%= data.power_windows %>">
+
+            <button type="submit"> Update Car Details </button>
+
+        </form>
+
+
+
 
 
 
