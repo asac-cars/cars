@@ -31,41 +31,36 @@
 
 <body>
 
-    <header>
-        <img src="../../image/logo.png">
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Services</a>
-            <a href="#">Car Search</a>
-            <a href="#">OBD</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
+    <%- include('../layouts/header') %>
 
-    <main>
-        <section class="hero">
-            <div class="div-heading">
-                <h1>Vehicle History</h1>
-                <h2>Get robust vehicle specification data on color options, attributes, equipment details, recall
-                    information, warranties, and photos. Using your car's VIN code .</h2>
-            </div>
 
-            <div class="form">
-                <img src="../../image/patteren3.png">
-                <!-- <form action="/historyData">
+        <main>
+            <section class="hero">
+                <div class="div-heading">
+                    <h1>Vehicle History</h1>
+                    <h2>Get access to a comprehensive set of history records for used and new cars by VIN based on sales
+                        data
+                        stored in database.
+                    </h2>
+                </div>
 
+                <div class="form">
+                    <img src="../../image/patteren3.png">
+                    <!-- <form action="/historyData">
                     <input type="text" name="vin" id="" placeholder="Insert the VIN">
             
                     <button type="submit"> EXPLORE </button>
             
                 </form> -->
-                <form action="/historyData">
-                    <input type="text" name="vin" id="" placeholder="VIN Code">
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
-        </section>
-    </main>
+                    <form action="/historyData">
+                        <input type="text" name="vin" id="" placeholder="VIN Code">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </section>
+
+
+        </main>
 
 </body>
 
