@@ -129,6 +129,36 @@ body{
   .features {
     background-color: #e6e7e8;
   }
+
+  .card {
+    opacity: 0;
+    transform: translate(0, 20vh);
+    transition: all 2s;
+  }
+  .card.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  .mot {
+    
+    opacity: 0;
+    animation: fadeIn 1s ease-in both;
+  }
+  .mot {
+    animation-delay: 500ms;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -20%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
   
   .features .background-sec {
   background-image: url("../image/blueshape6.png");
@@ -142,6 +172,35 @@ body{
     color: white;
     text-align: center;
     padding-bottom: 2.5%;
+  }
+  .vedio
+  {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    column-gap: 1%;
+    margin: 1% 1%;
+    text-align: center;
+    
+  }
+  .vedio h5{
+    font-size:30px;
+       margin-right: 20px;
+       border-right: .20em inset rgb(34, 79, 161);
+    height: 60vh;
+    padding-top: 130px;
+    padding-left: 1.3em;
+    padding-right: 1.3em;
+  }
+  .vedio_section p{
+    font-size: 3.7vw;
+       margin-right: 20px;
+       padding-left: 3.5em;
+      
+  }
+  
+  .vedio_section{
+    display: grid;
+    grid-template-rows: auto auto;
   }
   
     .background-sec
