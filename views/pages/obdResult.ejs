@@ -1,50 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/obd.css">
+    <title>OBD Result</title>
 </head>
+
+
+
 <body>
-
-    <header>
-        <h1>
-            OBD RESULTS
-        </h1>
-    </header>
-
     <main>
 
-        <h4>
-            Results for: <%= data.code %> 
-        </h4>
+        <section class="content">
 
-        <h3>
-            Discovered Issue: <%= data.diagnosis %> 
-        </h3>
-
-        <p>
-            Date: <%= data.date %> 
-        </p>
-
-        <form action="/myMalfunctionList" method="POST">
-
-            <input name="code" value="<%= data.code %>" class="hidden">
-            <input name="diagnosis" value="<%= data.diagnosis %>" class="hidden">
-            <input name="date" value="<%= data.date %>" class="hidden">
-
-            <button type="submit"> Save the Issue </button>
-
-        </form>
+            <header>
+                <img src="../../image/logo.png" />
+                <nav>
+                    <a href="#">Home</a>
+                    <a href="#">Services</a>
+                    <a href="#">Car Search</a>
+                    <a href="#">OBD</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </header>
 
 
+            <section class="sudo-main">
 
+                <h1>OBD Diagnosis</h1>
+
+                <div>
+                    <form action="/myMalfunctionList" method="POST">
+
+                        <input name="code" value="<%= data.code %>" class="hidden">
+                        <input name="diagnosis" value="<%= data.diagnosis %>" class="hidden">
+                        <input name="date" value="<%= data.date %>" class="hidden">
+
+                        <button type="submit"> Save OBD Code </button>
+
+                    </form>
+                </div>
+
+                <section class="tables">
+
+                    <table>
+                        <tr>
+                            <th>Results for</th>
+                            <td>
+                                <%= data.code %>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <th> Discovered Issue</th>
+                            <td>
+                                <%= data.diagnosis %>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Date</th>
+                            <td>
+                                <%= data.date %>
+                            </td>
+                        </tr>
+
+                    </table>
+                </section>
+            </section>
+
+            <footer>
+                <div>
+                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="google"><i class="fa fa-google"></i></a>
+                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                </div>
+
+                <div class="copy-right">
+                    <p>Copyright 2021 &copy; All Rights Reserved</p>
+                </div>
+            </footer>
+
+        </section>
+
+
+
+        <section class="blue-section">
+            <!-- shapes: -->
+            <img class="dot" src="../../image/patteren3.png">
+            <img class="man" src="../../image/man3.png">
+            <img class="tech" src="../../image/art2.png" />
+            <img class="tech2" src="../../image/art4.png" />
+            <div class="circle"></div>
+
+            <!-- port view -->
+            <div class="code">
+                <h4>P</h4>
+                <h4>0</h4>
+                <h4>1</h4>
+                <h4>3</h4>
+                <h4>0</h4>
+                <h4>5</h4>
+            </div>
+
+        </section>
     </main>
 
-    <footer>
-
-    </footer>
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+        crossorigin="anonymous"></script>
+    <script src="../../js/ring.js"></script>
 </body>
+
 </html>
