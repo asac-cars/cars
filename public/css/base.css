@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 * {
     box-sizing: border-box;
+    font-family: 'Open Sans' ;
+
 }
   
 body{
   background-color: #e6e7e8; 
   margin-right: 0%;
-  font-family: 'Roboto', sans-serif;
 
 }
   
@@ -121,10 +123,13 @@ body{
   .motoDial_Info p:nth-child(1){
     margin-bottom: 10%;
     font-size: 3vw;
+    color: #0b2a8f;
+    font-weight: bold;
   }
   
   .motoDial_Info p:nth-child(2){
     font-size: 1.5vw;
+    line-height: 1.6;
   
   }
   
@@ -284,6 +289,7 @@ body{
     transition: transform .7s;
     margin-top: 15% ;
     margin-left: 35%;
+    font-weight: bold;
   }
   button:hover {
     transform: scale(1.019); 
@@ -356,7 +362,7 @@ body{
   }
   
   .footer img {
-  width: 25%;
+  width: 50%;
   }
   
   footer a {
@@ -472,9 +478,18 @@ body{
   height: 20vh;
   margin-top: -30vh;
   margin-left: 50%;
+  margin-bottom: 2.75rem;
   position: relative;
 
 
+}
+
+.count button{
+  margin-top: 1rem;
+}
+
+.count p{
+  line-height: 1.6;
 }
 
 #list1 li {
@@ -513,6 +528,30 @@ ul li span{
   color: #0b2a8f;
 }
 #countdown{
-  margin-top: 5vh;
+  margin-top: 10vh;
 
+}
+
+.gridShop{
+  display: grid;
+  grid-template-rows: auto auto ;
+}
+
+.fa-facebook, .fa-twitter,.fa-google,.fa-linkedin{
+  color: #012a4e;
+}
+
+.bold_footer{
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #012a4e;
+}
+
+.last {
+  column-gap: 7vw;
+  margin-left: -2.5rem;
+}
+
+.before_last{
+  column-gap: 3rem;
 }
