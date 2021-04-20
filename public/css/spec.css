@@ -85,6 +85,7 @@
   header {
     display: grid;
     grid-template-columns: 25% 75%;
+    /* background-image: url('../image/hero3.png'); */
     background-color: rgb(218, 198, 218);
     padding: 2.2vh;
   height: 95%;
