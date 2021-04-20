@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/editObd.css">
     <title>Document</title>
 </head>
 
@@ -12,29 +13,29 @@
 
     <main>
 
-
-        <form action="/editMalfunctionList/<%= data.id %>?_method=PUT" method="POST">
-
-            <label for="name"> Name </label> <br>
-            <input name="code" value="<%= data.code %>"> <br>
-
-
-            <label for="diagnosis"> Issue</label> <br>
-            <textarea name="diagnosis" cols="30" rows="5"><%= data.diagnosis %></textarea> <br>
-
-            <label for="text"> Date </label> <br>
-            <input name="date" value="<%= data.date%>"> <br>
-
-            <button type="submit"> Update </button>
+        <div class="formObd">
+            <form action="/editMalfunctionList/<%= data.id %>?_method=PUT" method="POST">
+                <div class="data">
+                    <label for="name"> Name </label> <br>
+                    <input name="code" value="<%= data.code %>"> <br>
 
 
-        </form> <br>
+                    <label for="diagnosis"> Issue</label> <br>
+                    <textarea name="diagnosis" cols="30" rows="5"><%= data.diagnosis %></textarea> <br>
 
-        <form class="deleteForm" action="/editMalfunctionList/<%= data.id %>?_method=DELETE" method="POST">
-            <button type="submit" class="ud_btn">X</button>
-        </form>
+                    <label for="text"> Date </label> <br>
+                    <input name="date" value="<%= data.date%>"> <br>
+                </div>
+                <button type="submit" class="update"> Update </button>
 
 
+            </form> <br>
+
+            <form class="deleteForm" action="/editMalfunctionList/<%= data.id %>?_method=DELETE" method="POST">
+                <button type="submit" class="ud_btn">Delete</button>
+            </form>
+
+        </div>
 
 
 
