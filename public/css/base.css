@@ -526,10 +526,18 @@ ul li span{
   font-size: 3vh;
   margin-top: -5vh;
   color: #0b2a8f;
+  padding-left: 85pt;
+  padding-bottom: 2vh;
+  font-weight: bolder;
 }
 #countdown{
   margin-top: 10vh;
 
+}
+
+.sub{
+  margin-top:15pt;
+margin-left: 15vh;
 }
 
 .gridShop{
