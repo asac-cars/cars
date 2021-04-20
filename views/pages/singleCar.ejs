@@ -1,324 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/spec.css" />
+    <script src="https://kit.fontawesome.com/1224b18e51.js" crossorigin="anonymous"></script>
+    <title>Car Spec Result</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 
-<body>
+
+  <body>
 
     <header>
-
+      <a href="/"><img src="../../image/logo.png"></a>
+      <nav>
+        <!-- <a href="#">Services</a> -->
+        <a href="/specification">Car Search</a>
+        <a href="/obd">OBD</a>
+        <a href="/aboutus">About Us</a>
+        <a href="/garage"><i class="fas fa-warehouse"></i>
+        </a>
+        <a href="/malfunctionList"><i class="fas fa-wrench"></i>
+        </a>
+      </nav>
     </header>
 
-
-
-
     <main>
+      <img class="car" src="../../image/boghati5.png" />
 
-        <p>
-            Result For : <%=data.vin %>
-        </p>
+      <section class="content">
 
-        <h3>
-            Make: <%= data.make %>
-        </h3>
+        <section class="sudo-main">
 
-        <h3>
-            Model: <%= data.model %>
-        </h3>
+          <h1>Car Specifications</h1>
 
-        <h3>
-            Year: <%= data.year %>
-        </h3>
+          <div>
+            <p><%=data.vin %></p>
+          </div>
 
-        <h3>
-            Suggested Price: <%= data.price %>
-        </h3>
+          <section class="tables">
+          <table>
+            <tr>
+              <th>Model</th>
+              <td> <%= data.model %> <%= data.year %></td>
+            </tr>
+            
 
-        <h3>
-            Number Of Seats: <%= data.seats %>
-        </h3>
+            <tr>
+              <th>manufacturer</th>
+              <td><%= data.madein %> <%= data.make %></td>
+            </tr>
 
-        <h3>
-            Car Body : <%= data.style %>
-        </h3>
+            <tr>
+              <th>Transmission</th>
+              <td><%= data.transmission%></td>
+            </tr>
 
+            <tr>
+              <th>Suggested Price</th>
+              <td><%= data.price %></td>
+            </tr>
 
-        <section class="engine">
+            <tr>
+              <th>Car Body</th>
+              <td><%= data.style %></td>
+            </tr>
+            
+            <tr>
+              <th>Number Of Seats</th>
+              <td>data.seats</td>
+            </tr>
 
-            <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/engine-512.png" alt="">
-            <h3>
-                Engine : <%= data.engine%>
-            </h3>
+            <tr>
+              <th>Child Safety Door Locks</th>
+
+              <td><%= data.child_safety_door_locks %></td>
+            </tr>
+
+            <tr>
+              <th>CD Player</th>
+
+              <td><%= data.cd_player %></td>
+            </tr>
+
+            <tr>
+              <th>Heated Exterior Mirrors</th>
+              <td><%= data.heated_exterior_mirror %></td>
+            </tr>
+            
+            <tr>
+              <th>Airbag</th>
+              <td><%= data.driverairbag %></td>
+            </tr>
+
+            
+            <tr>
+              <th>Parking Aid</th>
+              <td><%= data.parkingaid %></td>
+            </tr>
+
+            <tr>
+              <th>Cruise Control</th>
+              <td><%= data.cruise_control %></td>
+            </tr>
+
+            <tr>
+              <th>Fog Lights</th>
+              <td><%= data.foglights %></td>
+            </tr>
+
+            <tr>
+              <th>Heated Seats</th>
+              <td><%= data.heated_seat %></td>
+            </tr>
+
+            <tr>
+              <th>navigation aid</th>
+              <td><%= data.navigation_aid %></td>
+            </tr>
+
+            <tr>
+              <th>Keyless Entry</th>
+              <td><%= data.keyless_entry %> </td>
+          </tr>
+          </table>
+
 
         </section>
-
-        <h2>
-            About The Car:
-        </h2>
-
-        <table>
-
-            <tr>
-                <th>
-                    Made in:
-                </th>
-
-                <td>
-                    <%= data.madein %>
-                </td>
-            </tr>
-
-            <tr>
-
-                <th>
-                    Fuel Capacity
-                </th>
-
-                <td>
-                    <%= data.fuelcapacity %>
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <th>
-                    Internal Fuel Consumption
-                </th>
-
-                <td>
-                    <%= data.fuelinternal %>
-                </td>
-
-            </tr>
-
-
-            <tr>
-
-                <th>
-                    External Fuel Consumption
-                </th>
-
-                <td>
-                    <%= data.fuelexternal %>
-                </td>
-
-            </tr>
-
-            <tr>
-                <th>
-                    Transmission:
-                </th>
-
-                <td>
-                    <%= data.transmission%>
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Alloy Wheels:
-                </th>
-
-                <td>
-                    <%= data.alloy_wheels %>
-                </td>
-            </tr>
-
-        </table>
-
-        <h2>
-            Car Equipments:
-        </h2>
-
-        <table>
-            <tr>
-                <th>
-                    Automatic Lights
-                </th>
-
-                <td>
-                    <%= data.automatic_headlights %>
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    CD Player
-                </th>
-
-                <td>
-                    <%= data.cd_player %>
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Child Safety Door Locks
-                </th>
-
-                <td>
-
-                    <%= data.child_safety_door_locks %>
-
-                </td>
-            </tr>
-
-            <tr>
-
-                <th>
-                    Fog Lights
-                </th>
-
-                <td>
-                    <%= data.foglights %>
-                </td>
-
-            </tr>
-
-            <tr>
-                <th>
-                    Cruise Control
-                </th>
-
-                <td>
-                    <%= data.cruise_control %>
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Airbag
-                </th>
-
-                <td>
-                    <%= data.driverairbag %>
-                </td>
-            </tr>
-
-
-            <tr>
-                <th>
-                    Cooled Seats
-                </th>
-                <td>
-                    <%= data.cooled_seat %>
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Heated Seats
-                </th>
-
-                <td>
-                    <%= data.heated_seat %>
-                </td>
-            </tr>
-
-
-            <tr>
-                <th>
-                    Parking Aid
-                </th>
-            <tr>
-                <%= data.parkingaid %>
-
-            </tr>
-            </tr>
-
-            <tr>
-                <th>
-                    Wood Trim
-                </th>
-
-                <td>
-                    <%= data.genuine_wood_trim %>
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Heated Exterior Mirrors
-                </th>
-                <td>
-                    <%= data.heated_exterior_mirror %>
-                </td>
-            </tr>
-
-            <tr>
-
-                <th>
-                    Heated Steering Wheel
-                </th>
-
-                <td>
-
-                    <%= data.heated_steering_wheel %>
-
-                </td>
-
-            </tr>
-
-            <tr>
-                <th>
-                    Keyless Entry
-                </th>
-
-                <td>
-
-                    <%= data.keyless_entry %>
-
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Leather Seat
-                </th>
-
-                <td>
-                    <%= data.leather_seat %>
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    navigation aid
-                </th>
-
-                <td>
-                    <%= data.navigation_aid %>
-                </td>
-            </tr>
-
-            <tr>
-                <th>
-                    Electric Power Windows
-                </th>
-                <td>
-                    <%= data.power_windows %>
-                </td>
-            </tr>
-
-
-        </table>
-
-    </section>
-
-
-
+        </section>
+        
+<footer>
+  <div>
+    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="#" class="google"><i class="fa fa-google"></i></a>
+    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  </div>
+  
+  <div  class="copy-right">
+    <p>Copyright 2021 &copy; All Rights Reserved</p>
+  </div>
+  </footer>
+
+      </section>
+
+
+
+      <section class="blue-section">
+        <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+
+          <%= data.engine.slice(0,5) %>
+
+          </text>
+        </svg>
+
+        <svg class="radial-progress" data-percentage="42" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+          <%= data.fuelinternal.slice(0,2)+' mi/gal'%>
+        </text>
+        </svg>
+
+        <svg class="radial-progress" data-percentage="62" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+          <%= data.fuelexternal.slice(0,2)+' mi/gal'%>
+          </text>
+        </svg>
+
+        <svg class="radial-progress" data-percentage="72" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+          <%= data.fuelCapacity %> 
+          </text>
+        </svg>
+
+        <p class="data1"><span>Engine</span> <br /><%= data.engine %></p>
+        <p class="data2"><span>Fuel Internal</span> <br /> <%= data.fuelinternal%> </p>
+        <p class="data3">
+          <span>Fuel Capacity</span> <br />
+          24.00 gallon
+        </p>
+
+        <h3> <%= data.make%>
+          <%= data.model %> 
+        </h3>
+      </section>
     </main>
 
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/js/app.js"></script>
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../../js/ring.js"></script>
+  </body>
 </html>

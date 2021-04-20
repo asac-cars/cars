@@ -32,7 +32,7 @@ const methodOverride = require('method-override');
 ///////////////////////////
 
 // Setting the PORT
-const PORT = process.env.PORT || 3000 ;
+const PORT = process.env.PORT || 3000;
 
 
 // Running express on our app
@@ -45,7 +45,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 // pg client
-//const client = new pg.Client(process.env.DATABASE_URL);
+// const client = new pg.Client(process.env.DATABASE_URL);
 const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
 
 // middle ware to use (put) and (delete) methods
@@ -97,9 +97,9 @@ app.get('/obd', obdHandler);
 app.post('/obdResult', obdResultHandler);
 
 //Redirect user to all saved the issues
-app.get('/malfunctionList',malfunctionHandler);
+app.get('/malfunctionList', malfunctionHandler);
 
-app.post('/myMalfunctionList',myMalfunctionHandler);
+app.post('/myMalfunctionList', myMalfunctionHandler);
 
 app.get('/myMalfunctionList/:id', singleMalfunctionHandler);
 
@@ -123,45 +123,68 @@ app.put('/updateCar/:id', editCarHandler);
 
 app.delete('/updateCar/:id', deleteCarHandler);
 
+app.get('/aboutus', aboutUsHandler);
+
 // app.get('*', notFoundHandler);
 
 
 
 
 
-function homeHandler (req,res){
+async function homeHandler(req, res) {
+  let SQL;
+  let data;
 
-  res.render('pages/index');
+  SQL = `SELECT * FROM cars;`;
+  data = await client.query(SQL);
+  const carLength = data.rows.length;
 
+  SQL = `SELECT * FROM obd;`;
+  data = await client.query(SQL);
+  const obdLength = data.rows.length;
+
+  res.render('pages/index', { carLength, obdLength });
 }
 
 //localhost:7777/specification
 
-function specHandler(req,res){
-  res.render('pages/specification');
+async function specHandler(req, res) {
+
+  let SQL;
+  let data;
+
+  SQL = `SELECT * FROM cars;`;
+  data = await client.query(SQL);
+  const carLength = data.rows.length;
+
+  SQL = `SELECT * FROM obd;`;
+  data = await client.query(SQL);
+  const obdLength = data.rows.length;
+
+  res.render('pages/specification', { carLength, obdLength });
 }
 
 //localhost:7777/specificationresult?vin=xxx-xxx-xxx
 
-function specificationHandler(req,res){
+function specificationHandler(req, res) {
 
 
   console.log(req.query);
 
-  let vin= req.query.vin;
+  let vin = req.query.vin;
 
   let key = process.env.API_KEY;
 
   let url = `https://api.carsxe.com/specs?key=${key}&vin=${vin}`;
 
-  superagent.get(url).then(carData=>{
-    let carDataBody= carData.body;
+  superagent.get(url).then(carData => {
+    let carDataBody = carData.body;
 
 
     let correctData = new Car(carDataBody);
 
 
-    res.render('pages/specificationresult', {data:correctData});
+    res.render('pages/specificationresult', { data: correctData });
 
 
   }).catch(error => {
@@ -172,8 +195,20 @@ function specificationHandler(req,res){
 // CarFax
 //localhost:7777/specification
 
-function carfaxHandler (req,res){
-  res.render('pages/carfax');
+async function carfaxHandler(req, res) {
+
+  let SQL;
+  let data;
+
+  SQL = `SELECT * FROM cars;`;
+  data = await client.query(SQL);
+  const carLength = data.rows.length;
+
+  SQL = `SELECT * FROM obd;`;
+  data = await client.query(SQL);
+  const obdLength = data.rows.length;
+  
+  res.render('pages/carfax', { carLength, obdLength });
 }
 
 
@@ -208,13 +243,15 @@ function carfaxHandler (req,res){
 // });
 // }
 
-function historyDataHandler (req,res){
+function historyDataHandler(req, res) {
+
+  let vin = req.query.vin;
 
   let getHistoryData = require('./history/report.json');
 
-  let correctData = new Report (getHistoryData);
+  let correctData = new Report(getHistoryData, vin);
 
-  res.render('pages/historyresult', {report:correctData});
+  res.render('pages/historyresult', { report: correctData });
 
 }
 
@@ -223,37 +260,48 @@ function historyDataHandler (req,res){
 // OBD Handler
 // http://localhost:7777/obd
 
-function obdHandler(req,res){
-  res.render('pages/obd');
+async function obdHandler(req, res) {
+
+  let SQL;
+  let data;
+
+  SQL = `SELECT * FROM cars;`;
+  data = await client.query(SQL);
+  const carLength = data.rows.length;
+
+  SQL = `SELECT * FROM obd;`;
+  data = await client.query(SQL);
+  const obdLength = data.rows.length;
+
+  res.render('pages/obd', { carLength, obdLength });
 }
 
 // OBD Result Handler
-function obdResultHandler(req,res){
+function obdResultHandler(req, res) {
 
   let obd = req.body.obd;
 
-  let key= process.env.API_KEY;
+  let key = process.env.API_KEY;
 
-  let url= `https://api.carsxe.com/obdcodesdecoder?key=${key}&code=${obd}`;
+  let url = `https://api.carsxe.com/obdcodesdecoder?key=${key}&code=${obd}`;
 
 
-  superagent.get(url).then(data=>{
+  superagent.get(url).then(data => {
 
-    let dataBody=data.body;
+    let dataBody = data.body;
 
-    let correctData= new OBD(dataBody);
+    let correctData = new OBD(dataBody);
 
-    res.render('pages/obdResult',{data:correctData});
+    res.render('pages/obdResult', { data: correctData });
   });
 }
 
-function malfunctionHandler (req,res){
+function malfunctionHandler(req, res) {
 
+  let SQL = `SELECT * FROM obd;`;
 
-  let SQL= `SELECT * FROM obd;`;
-
-  client.query(SQL).then(data=>{
-    res.render('pages/malfunctionList', {data:data.rows, count:data.rows.length});
+  client.query(SQL).then(data => {
+    res.render('pages/malfunctionList', { data: data.rows, count: data.rows.length });
   });
 
   console.log(req.query);
@@ -261,25 +309,25 @@ function malfunctionHandler (req,res){
 
 }
 
-function myMalfunctionHandler(req,res){
+function myMalfunctionHandler(req, res) {
   let id;
 
   let SQL = 'INSERT INTO obd (code,diagnosis,date) VALUES ($1,$2,$3) RETURNING id;';
 
-  const {code,diagnosis,date}= req.body;
+  const { code, diagnosis, date } = req.body;
 
-  let safeValues = [code,diagnosis,date];
+  let safeValues = [code, diagnosis, date];
 
-  let sqlSearch= `SELECT * FROM obd WHERE code = '${code}';`;
+  let sqlSearch = `SELECT * FROM obd WHERE code = '${code}';`;
 
-  client.query(sqlSearch).then(searchedResult=>{
-    if(searchedResult.rowCount>0){
+  client.query(sqlSearch).then(searchedResult => {
+    if (searchedResult.rowCount > 0) {
 
       res.redirect(`/myMalfunctionList/${searchedResult.rows[0].id}`);
-    } else{
+    } else {
 
-      client.query(SQL,safeValues).then(result=>{
-        id =result.rows[0].id;
+      client.query(SQL, safeValues).then(result => {
+        id = result.rows[0].id;
         res.redirect(`/myMalfunctionList/${id}`);
       });
 
@@ -288,85 +336,97 @@ function myMalfunctionHandler(req,res){
 }
 
 
-function singleMalfunctionHandler (req,res){
-  const SQL= `SELECT * from obd WHERE id=${req.params.id};`;
+function singleMalfunctionHandler(req, res) {
+  const SQL = `SELECT * from obd WHERE id=${req.params.id};`;
 
-  client.query(SQL).then(result=>{
-    res.render('pages/singleMalfunction', {data:result.rows[0]});
+  client.query(SQL).then(result => {
+    res.render('pages/singleMalfunction', { data: result.rows[0] });
   });
 }
 
-function editMalfunctionHandler (req,res){
-  const SQL= `SELECT * from obd WHERE id=${req.params.id};`;
+function editMalfunctionHandler(req, res) {
+  const SQL = `SELECT * from obd WHERE id=${req.params.id};`;
 
-  client.query(SQL).then(result=>{
-    res.render('pages/editObd', {data:result.rows[0]});
+  client.query(SQL).then(result => {
+    res.render('pages/editObd', { data: result.rows[0] });
   });
 }
 
 
-function deleteObdHandler (req,res){
+function deleteObdHandler(req, res) {
 
   let SQL = `DELETE FROM obd WHERE id=$1;`;
   let value = [req.params.id];
-  client.query(SQL,value).then(res.redirect('/malfunctionList'));
+  client.query(SQL, value).then(res.redirect('/malfunctionList'));
 
 }
 
-function updateObdHandler (req,res){
+function updateObdHandler(req, res) {
 
-  let id= req.params.id;
+  let id = req.params.id;
 
   let SQL = `UPDATE obd SET code=$1, diagnosis=$2, date=$3 WHERE id=$4;`;
 
-  const {code,diagnosis,date}=req.body;
+  const { code, diagnosis, date } = req.body;
 
-  const safeValues= [code,diagnosis,date,id];
+  const safeValues = [code, diagnosis, date, id];
 
-  client.query(SQL,safeValues).then(()=>{
+  client.query(SQL, safeValues).then(() => {
     res.redirect(`/malfunctionList`);
   });
 
 }
 
 
-function chargeHandler(req,res){
-  res.render('pages/charge');
+async function chargeHandler(req, res) {
+
+  let SQL;
+  let data;
+
+  SQL = `SELECT * FROM cars;`;
+  data = await client.query(SQL);
+  const carLength = data.rows.length;
+
+  SQL = `SELECT * FROM obd;`;
+  data = await client.query(SQL);
+  const obdLength = data.rows.length;
+
+  res.render('pages/charge', {carLength,obdLength});
 }
 
 
 // http://localhost:7777/garage
 
-function garageHandler (req,res){
+function garageHandler(req, res) {
 
   const SQL = `SELECT * FROM cars;`;
 
-  client.query(SQL).then(data=>{
-    res.render('pages/garage', {cars:data.rows, count:data.rows.length});
+  client.query(SQL).then(data => {
+    res.render('pages/garage', { cars: data.rows, count: data.rows.length });
   });
 
 }
 
 
-function myCarsHandler(req,res){
+function myCarsHandler(req, res) {
   let id;
 
-  let SQL= 'INSERT INTO cars (vin, year, make, model ,engine, style, madeIn, fuelCapacity, fuelInternal,fuelExternal,transmission,seats, price,alloy_wheels, automatic_headlights, cd_player, child_safety_door_locks,fogLights,cruise_control,driverAirbag,passenger_airbag,cooled_seat,heated_seat,parkingAid,genuine_wood_trim,heated_exterior_mirror,heated_steering_wheel,keyless_entry,leather_seat,navigation_aid,power_windows) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31) RETURNING id;';
+  let SQL = 'INSERT INTO cars (vin, year, make, model ,engine, style, madeIn, fuelCapacity, fuelInternal,fuelExternal,transmission,seats, price,alloy_wheels, automatic_headlights, cd_player, child_safety_door_locks,fogLights,cruise_control,driverAirbag,passenger_airbag,cooled_seat,heated_seat,parkingAid,genuine_wood_trim,heated_exterior_mirror,heated_steering_wheel,keyless_entry,leather_seat,navigation_aid,power_windows) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31) RETURNING id;';
 
-  const {vin, year, make, model ,engine, style, madeIn, fuelCapacity, fuelInternal,fuelExternal,transmission,seats, price,alloy_wheels, automatic_headlights, cd_player, child_safety_door_locks,fogLights,cruise_control,driverAirbag,passenger_airbag,cooled_seat,heated_seat,parkingAid,genuine_wood_trim,heated_exterior_mirror,heated_steering_wheel,keyless_entry,leather_seat,navigation_aid,power_windows}=req.body;
+  const { vin, year, make, model, engine, style, madeIn, fuelCapacity, fuelInternal, fuelExternal, transmission, seats, price, alloy_wheels, automatic_headlights, cd_player, child_safety_door_locks, fogLights, cruise_control, driverAirbag, passenger_airbag, cooled_seat, heated_seat, parkingAid, genuine_wood_trim, heated_exterior_mirror, heated_steering_wheel, keyless_entry, leather_seat, navigation_aid, power_windows } = req.body;
 
-  const safeValues= [vin, year, make, model ,engine, style, madeIn, fuelCapacity, fuelInternal,fuelExternal,transmission,seats, price,alloy_wheels, automatic_headlights, cd_player, child_safety_door_locks,fogLights,cruise_control,driverAirbag,passenger_airbag,cooled_seat,heated_seat,parkingAid,genuine_wood_trim,heated_exterior_mirror,heated_steering_wheel,keyless_entry,leather_seat,navigation_aid,power_windows];
+  const safeValues = [vin, year, make, model, engine, style, madeIn, fuelCapacity, fuelInternal, fuelExternal, transmission, seats, price, alloy_wheels, automatic_headlights, cd_player, child_safety_door_locks, fogLights, cruise_control, driverAirbag, passenger_airbag, cooled_seat, heated_seat, parkingAid, genuine_wood_trim, heated_exterior_mirror, heated_steering_wheel, keyless_entry, leather_seat, navigation_aid, power_windows];
 
   const sqlSearch = `SELECT * FROM cars WHERE vin = '${vin}' ;`;
 
-  client.query(sqlSearch).then(searchedResult=>{
+  client.query(sqlSearch).then(searchedResult => {
 
-    if(searchedResult.rowCount>0){
+    if (searchedResult.rowCount > 0) {
       res.redirect(`/myCars/${searchedResult.rows[0].id}`);
 
-    } else{
-      client.query(SQL,safeValues).then(result=>{
-        id =result.rows[0].id;
+    } else {
+      client.query(SQL, safeValues).then(result => {
+        id = result.rows[0].id;
         res.redirect(`/garage`);
       });
     }
@@ -375,147 +435,165 @@ function myCarsHandler(req,res){
 
 }
 
-function singleCarHandler (req,res){
-  const SQL= `SELECT * from cars WHERE id=${req.params.id};`;
+function singleCarHandler(req, res) {
+  const SQL = `SELECT * from cars WHERE id=${req.params.id};`;
 
-  client.query(SQL).then(result=>{
-    res.render('pages/singleCar', {data:result.rows[0]});
+  client.query(SQL).then(result => {
+    res.render('pages/singleCar', { data: result.rows[0] });
   });
 }
 
-function updateCarHandler(req,res){
-  const SQL= `SELECT * from cars WHERE id=${req.params.id};`;
+function updateCarHandler(req, res) {
+  const SQL = `SELECT * from cars WHERE id=${req.params.id};`;
 
 
-  client.query(SQL).then(result=>{
-    res.render('pages/updateCar', {data:result.rows[0]});
+  client.query(SQL).then(result => {
+    res.render('pages/updateCar', { data: result.rows[0] });
   });
 }
 
-function editCarHandler (req,res){
+function editCarHandler(req, res) {
 
-  let id= req.params.id;
+  let id = req.params.id;
 
   let SQL = `UPDATE cars SET vin=$1, year=$2, make=$3, model=$4 ,engine=$5, style=$6, madeIn=$7, fuelCapacity=$8, fuelInternal=$9,fuelExternal=$10,transmission=$11,seats=$12, price=$13 ,alloy_wheels=$14 , automatic_headlights=$15, cd_player=$16, child_safety_door_locks=$17,fogLights=$18,cruise_control=$19,driverAirbag=$20,passenger_airbag=$21,cooled_seat=$22,heated_seat=$23,parkingAid=$24,genuine_wood_trim=$25,heated_exterior_mirror=$26,heated_steering_wheel=$27,keyless_entry=$28,leather_seat=$29,navigation_aid=$30,power_windows=$31 WHERE id=$32;`;
 
-  const {vin, year, make, model ,engine, style, madeIn, fuelCapacity, fuelInternal,fuelExternal,transmission,seats, price,alloy_wheels, automatic_headlights, cd_player, child_safety_door_locks,fogLights,cruise_control,driverAirbag,passenger_airbag,cooled_seat,heated_seat,parkingAid,genuine_wood_trim,heated_exterior_mirror,heated_steering_wheel,keyless_entry,leather_seat,navigation_aid,power_windows}=req.body;
+  const { vin, year, make, model, engine, style, madeIn, fuelCapacity, fuelInternal, fuelExternal, transmission, seats, price, alloy_wheels, automatic_headlights, cd_player, child_safety_door_locks, fogLights, cruise_control, driverAirbag, passenger_airbag, cooled_seat, heated_seat, parkingAid, genuine_wood_trim, heated_exterior_mirror, heated_steering_wheel, keyless_entry, leather_seat, navigation_aid, power_windows } = req.body;
 
-  const safeValues= [vin, year, make, model ,engine, style, madeIn, fuelCapacity, fuelInternal,fuelExternal,transmission,seats, price,alloy_wheels, automatic_headlights, cd_player, child_safety_door_locks,fogLights,cruise_control,driverAirbag,passenger_airbag,cooled_seat,heated_seat,parkingAid,genuine_wood_trim,heated_exterior_mirror,heated_steering_wheel,keyless_entry,leather_seat,navigation_aid,power_windows,id];
+  const safeValues = [vin, year, make, model, engine, style, madeIn, fuelCapacity, fuelInternal, fuelExternal, transmission, seats, price, alloy_wheels, automatic_headlights, cd_player, child_safety_door_locks, fogLights, cruise_control, driverAirbag, passenger_airbag, cooled_seat, heated_seat, parkingAid, genuine_wood_trim, heated_exterior_mirror, heated_steering_wheel, keyless_entry, leather_seat, navigation_aid, power_windows, id];
 
-  client.query(SQL,safeValues).then(()=>{
+  client.query(SQL, safeValues).then(() => {
     res.redirect(`/updateCar/${id}`);
   });
 
 }
 
-function deleteCarHandler (req,res){
+function deleteCarHandler(req, res) {
 
   let SQL = `DELETE FROM cars WHERE id=$1;`;
   let value = [req.params.id];
-  client.query(SQL,value).then(res.redirect('/garage'));
+  client.query(SQL, value).then(res.redirect('/garage'));
 
+}
+
+async function aboutUsHandler(req, res) {
+  let SQL;
+  let data;
+
+  SQL = `SELECT * FROM cars;`;
+  data = await client.query(SQL);
+  const carLength = data.rows.length;
+
+  SQL = `SELECT * FROM obd;`;
+  data = await client.query(SQL);
+  const obdLength = data.rows.length;
+
+  res.render('pages/aboutus', {carLength,obdLength});
 }
 
 ///////////////////////
 //// Constructor  ////
 /////////////////////
 
-function Car (data){
+function Car(data) {
 
-  this.vin=data.input.vin;
+  this.vin = data.input.vin;
 
   // Attributes
-  this.year= data.attributes.year;
+  this.year = data.attributes.year;
 
-  this.make= data.attributes.make;
+  this.make = data.attributes.make;
 
-  this.model= data.attributes.model;
+  this.model = data.attributes.model;
 
-  this.engine= data.attributes.engine;
+  this.engine = data.attributes.engine;
 
-  this.style= data.attributes.style;
+  this.style = data.attributes.style;
 
-  this.madeIn= data.attributes.made_in;
+  this.madeIn = data.attributes.made_in;
 
-  this.fuelCapacity= data.attributes.fuel_capacity;
+  this.fuelCapacity = data.attributes.fuel_capacity;
 
-  this.fuelInternal= data.attributes.city_mileage;
+  this.fuelInternal = data.attributes.city_mileage;
 
-  this.fuelExternal= data.attributes.highway_mileage;
+  this.fuelExternal = data.attributes.highway_mileage;
 
-  this.transmission=data.attributes.transmission_short;
+  this.transmission = data.attributes.transmission_short;
 
-  this.seats= data.attributes.standard_seating;
+  this.seats = data.attributes.standard_seating;
 
-  this.price=data.attributes.manufacturer_suggested_retail_price;
+  this.price = data.attributes.manufacturer_suggested_retail_price;
 
 
   // Equipments
 
-  this.alloy_wheels= data.equipment.alloy_wheels;
+  this.alloy_wheels = data.equipment.alloy_wheels;
 
-  this.automatic_headlights= data.equipment.automatic_headlights;
+  this.automatic_headlights = data.equipment.automatic_headlights;
 
-  this.cd_player=data.equipment.cd_player;
+  this.cd_player = data.equipment.cd_player;
 
-  this.child_safety_door_locks=data.equipment.child_safety_door_locks;
+  this.child_safety_door_locks = data.equipment.child_safety_door_locks;
 
-  this.fogLights=data.equipment.fog_lights;
+  this.fogLights = data.equipment.fog_lights;
 
-  this.cruise_control=data.equipment.cruise_control;
+  this.cruise_control = data.equipment.cruise_control;
 
-  this.driverAirbag= data.equipment.driver_airbag;
+  this.driverAirbag = data.equipment.driver_airbag;
 
-  this.passenger_airbag= data.equipment.passenger_airbag;
+  this.passenger_airbag = data.equipment.passenger_airbag;
 
-  this.cooled_seat= data.equipment.front_cooled_seat;
+  this.cooled_seat = data.equipment.front_cooled_seat;
 
-  this.heated_seat= data.equipment.front_heated_seat;
+  this.heated_seat = data.equipment.front_heated_seat;
 
-  this.parkingAid= data.equipment.electronic_parking_aid;
+  this.parkingAid = data.equipment.electronic_parking_aid;
 
-  this.genuine_wood_trim= data.equipment.genuine_wood_trim;
+  this.genuine_wood_trim = data.equipment.genuine_wood_trim;
 
-  this.heated_exterior_mirror=data.equipment.heated_exterior_mirror;
+  this.heated_exterior_mirror = data.equipment.heated_exterior_mirror;
 
-  this.heated_steering_wheel= data.equipment.heated_steering_wheel;
+  this.heated_steering_wheel = data.equipment.heated_steering_wheel;
 
-  this.keyless_entry= data.equipment.keyless_entry;
+  this.keyless_entry = data.equipment.keyless_entry;
 
-  this.leather_seat= data.equipment.leather_seat;
+  this.leather_seat = data.equipment.leather_seat;
 
-  this.navigation_aid= data.equipment.navigation_aid;
+  this.navigation_aid = data.equipment.navigation_aid;
 
-  this.power_windows= data.equipment.power_windows;
+  this.power_windows = data.equipment.power_windows;
 
-  this.warranties=data.warranties;
+  this.warranties = data.warranties;
 
 }
 
 
-function Report (data){
-  this.odometer=data.historyInformation[0].VehicleOdometerReadingMeasure;
+function Report(data, vin) {
+
+  this.vin = vin;
+
+  this.odometer = data.historyInformation[0].VehicleOdometerReadingMeasure;
 
   this.odometerUnit = data.historyInformation[0].VehicleOdometerReadingUnitCode;
 
-  this.status=data.junkAndSalvageInformation[0].ReportingEntityAbstract.ReportingEntityCategoryText;
+  this.status = data.junkAndSalvageInformation[0].ReportingEntityAbstract.ReportingEntityCategoryText;
 
-  this.reportingCompany=data.junkAndSalvageInformation[0].ReportingEntityAbstract.EntityName;
+  this.reportingCompany = data.junkAndSalvageInformation[0].ReportingEntityAbstract.EntityName;
 
-  this.insurance= data.insuranceInformation[0].ReportingEntityAbstract.EntityName;
+  this.insurance = data.insuranceInformation[0].ReportingEntityAbstract.EntityName;
 
-  this.insuranceEmail=data.insuranceInformation[0].ReportingEntityAbstract.ContactEmailID;
+  this.insuranceEmail = data.insuranceInformation[0].ReportingEntityAbstract.ContactEmailID;
 
-  this.insurancePhone=data.insuranceInformation[0].ReportingEntityAbstract.TelephoneNumberFullID;
+  this.insurancePhone = data.insuranceInformation[0].ReportingEntityAbstract.TelephoneNumberFullID;
 
 }
 
 
-function OBD (data){
+function OBD(data) {
 
-  this.code=data.code;
-  this.diagnosis=data.diagnosis;
-  this.date=new Date(data.date).toString().slice(0,15);
+  this.code = data.code;
+  this.diagnosis = data.diagnosis;
+  this.date = new Date(data.date).toString().slice(0, 15);
 }
 
 // this.time = new Date(data.valid_date).toString().slice(0, 15);

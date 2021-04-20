@@ -10,27 +10,33 @@
     />
     <link rel="stylesheet" href="../../css/reset.css" />
     <link rel="stylesheet" href="../../css/spec.css" />
+    <script src="https://kit.fontawesome.com/1224b18e51.js" crossorigin="anonymous"></script>
+
     <title>Car Spec Result</title>
   </head>
 
 
 
   <body>
+
+    <header>
+      <a href="/"><img src="../../image/logo.png"></a>
+      <nav>
+        <!-- <a href="#">Services</a> -->
+        <a href="/specification">Car Search</a>
+        <a href="/obd">OBD</a>
+        <a href="/aboutus">About Us</a>
+        <a href="/garage"><i class="fas fa-warehouse"></i>
+        </a>
+        <a href="/malfunctionList"><i class="fas fa-wrench"></i>
+        </a>
+      </nav>
+    </header>
+
     <main>
       <img class="car" src="../../image/boghati5.png" />
 
       <section class="content">
-
-        <header>
-          <img src="../../image/logo.png" />
-          <nav>
-            <a href="#">Home</a>
-            <a href="#">Services</a>
-            <a href="#">Car Search</a>
-            <a href="#">OBD</a>
-            <a href="#">Contact</a>
-          </nav>
-        </header>
 
         <section class="sudo-main">
 
@@ -321,8 +327,7 @@
             transform="matrix(0, 1, -1, 0, 80, 0)"
           >
 
-          6.0 L
-
+          <%= data.engine.slice(0,5) %>
 
           </text>
         </svg>
@@ -342,8 +347,8 @@
             y="57%"
             transform="matrix(0, 1, -1, 0, 80, 0)"
           >
-            12 mi/gal
-          </text>
+          <%= data.fuelInternal.slice(0,2)+' mi/gal'%>
+        </text>
         </svg>
 
         <svg class="radial-progress" data-percentage="62" viewBox="0 0 80 80">
@@ -361,7 +366,7 @@
             y="57%"
             transform="matrix(0, 1, -1, 0, 80, 0)"
           >
-            24.00 gal
+          <%= data.fuelExternal.slice(0,2)+' mi/gal'%>
           </text>
         </svg>
 
@@ -380,18 +385,20 @@
             y="57%"
             transform="matrix(0, 1, -1, 0, 80, 0)"
           >
-            24.00 gal
+          <%= data.fuelCapacity %> 
           </text>
         </svg>
 
-        <p class="data1"><span>Engine</span> <br />6.0L W12 DOHC 48V TURBO</p>
-        <p class="data2"><span>Fuel Internal</span> <br />12 mi/gal</p>
+        <p class="data1"><span>Engine</span> <br /><%= data.engine %></p>
+        <p class="data2"><span>Fuel Internal</span> <br /> <%= data.fuelInternal%> </p>
         <p class="data3">
           <span>Fuel Capacity</span> <br />
           24.00 gallon
         </p>
 
-        <h3>Bentley Continental GT</h3>
+        <h3> <%= data.make%>
+          <%= data.model %> 
+        </h3>
       </section>
     </main>
 
