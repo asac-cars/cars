@@ -150,15 +150,15 @@
   }
   
   .data1{
-    top:5.5em;
+    top:9.5em;
   }
   
   .data2{
-    top:15em;
+    top:20em;
   }
   
   .data3{
-    top:25em;
+    top:30em;
   }
   
   .blue-section p span {
@@ -167,17 +167,17 @@
     color: white;
   }
   
-  /*car bame */
+  /*car name */
   h3 {
     position: absolute;
-    bottom: .9em;
+    bottom: 0em;
     right:1.1em;
     font-size: 1.8em;
     word-wrap: break-word;
     font-weight: bold;
     border-top: 1.5px groove #f3f3f3;
-  border-radius: 5px;
-  border-bottom: 1.5px groove #f3f3f3;
+    border-radius: 5px;
+    border-bottom: 1.5px groove #f3f3f3;
     padding: .5% .5%;
   text-shadow: 1px 1px 1.5px rgba(102, 102, 102, 0.85);
   text-shadow: 0 0 20px #fff, 0 0 30px #444344, 0 0 40px #f5eef1, 0 0 50px #fcfafb, 0 0 60px #acaaab, 0 0 70px #faf7f8, 0 0 80px #fffafd;}
@@ -279,7 +279,7 @@
       animation-duration: 2s;
       animation-iteration-count: infinite;
       animation-timing-function: ease-in-out;
-      margin-left: 30px;
+      /* margin-left: 30px; */
       margin-top: 5px;
   }
   @keyframes floating {

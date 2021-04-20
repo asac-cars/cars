@@ -1,44 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/spec.css" />
+    <script src="https://kit.fontawesome.com/1224b18e51.js" crossorigin="anonymous"></script>
 
+    <title>Carfax Report</title>
+  </head>
+
+  <body>
     <header>
-        <h1>History Result</h1>
+      <a href="/"><img src="../../image/logo.png"></a>
+      <nav>
+        <!-- <a href="#">Services</a> -->
+        <a href="/specification">Car Search</a>
+        <a href="/obd">OBD</a>
+        <a href="/aboutus">About Us</a>
+        <a href="/garage"><i class="fas fa-warehouse"></i>
+        </a>
+        <a href="/malfunctionList"><i class="fas fa-wrench"></i>
+        </a>
+      </nav>
     </header>
 
     <main>
-        <h4>
-           Odometer Reading: <%= report.odometer %> <%= report.odometerUnit %> 
-        </h4>
 
-        <h4>
-           Status: <%= report.status %>
-        </h4>
+      <img class="car" src="../../image/boghati5.png" />
 
-        <h4>
-           Reporting Company:<%= report.reportingCompany %>
-        </h4>
+      <section class="content">
 
-        <h4>
-            Last Insurance Company: <%= report.insurance%>
-        </h4>
+        <section class="sudo-main">
 
-        <h4>
-            <%=report.insurance%> Email: <%= report.insuranceEmail %>
-        </h4>
+          <h1>Car History</h1>
 
-        <h4>
-            <%=report.insurance%> Phone: <%= report.insurancePhone %>
-        </h4>
+          <div>
+            <p><%=report.vin %></p>
+          </div>
+
+          <section class="tables">  
+          <table>
+            <tr>
+              <th>Odometer Reading</th>
+              <td> <%= report.odometer %> <%= report.odometerUnit %></td>
+            </tr>
+            
+
+            <tr>
+              <th>Status</th>
+              <td><%= report.status %></td>
+            </tr>
+
+            <tr>
+              <th>Reporting Company</th>
+              <td><%= report.reportingCompany %></td>
+            </tr>
+
+            <tr>
+              <th>Last Insurance Company</th>
+              <td><%= report.insurance%></td>
+            </tr>
+
+            <tr>
+              <th><%=report.insurance%> Email</th>
+              <td><%= report.insuranceEmail %></td>
+            </tr>
+            
+            <tr>
+              <th><%=report.insurance%> Phone</th>
+              <td><%= report.insurancePhone %></td>
+            </tr>
+
+          </table>
+        </section>
+        </section>
+        
+<footer>
+  <div>
+    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="#" class="google"><i class="fa fa-google"></i></a>
+    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  </div>
+  
+  <div  class="copy-right">
+    <p>Copyright 2021 &copy; All Rights Reserved</p>
+  </div>
+  </footer>
+
+      </section>
 
 
+
+      <section class="blue-section">
+        <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+            6.0L
+          </text>
+        </svg>
+
+        <svg class="radial-progress" data-percentage="42" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+            12 mi/gal
+          </text>
+        </svg>
+
+        <svg class="radial-progress" data-percentage="62" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+            24.00 gal
+          </text>
+        </svg>
+
+        <svg class="radial-progress" data-percentage="72" viewBox="0 0 80 80">
+          <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+          <circle
+            class="complete"
+            cx="40"
+            cy="40"
+            r="35"
+            style="stroke-dashoffset: 39.58406743523136"
+          ></circle>
+          <text
+            class="percentage"
+            x="50%"
+            y="57%"
+            transform="matrix(0, 1, -1, 0, 80, 0)"
+          >
+            24.00 gal
+          </text>
+        </svg>
+
+        <p class="data1"><span>Engine</span> <br />6.0L W12 DOHC 48V TURBO</p>
+        <p class="data2"><span>Fuel Internal</span> <br />12 mi/gal</p>
+        <p class="data3">
+          <span>Fuel Capacity</span> <br />
+          24.00 gallon
+        </p>
+      </section>
     </main>
-    
-</body>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../../js/ring.js"></script>
+  </body>
 </html>
