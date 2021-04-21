@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../../css/reset.css" />
-    <link rel="stylesheet" href="../../css/obd.css">
+    <link rel="stylesheet" href="../../css/editObd.css">
     <title>OBD Result</title>
 </head>
 
@@ -40,32 +40,36 @@
 
             <section class="sudo-main">
 
-                <h1>Edit Car Issue</h1>
-
-                <div>
-
-                    <form action="/editMalfunctionList/<%= data.id %>?_method=PUT" method="POST">
-                        <div class="data">
-                            <label for="name"> Name </label> <br>
-                            <input name="code" value="<%= data.code %>"> <br>
+                <div class="form-style-10">
+                    <h1>Edit OBD Malfunction Info</h1>
+                <form action="/updateCar/<%= data.id %>?_method=PUT" method="POST">
+        
+                    <div class="section"><span><div class="dott"></div>
+        
+                    </span>Malfunction Info</div>
+                    <div class="inner-wrap">
+                      <label for="name"> Name </label> <br>
+                      <input name="code" value="<%= data.code %>"> <br>
         
         
-                            <label for="diagnosis"> Issue</label> <br>
-                            <textarea name="diagnosis" cols="30" rows="5"><%= data.diagnosis %></textarea> <br>
+                      <label for="diagnosis"> Issue</label> <br>
+                      <textarea name="diagnosis" cols="30" rows="5"><%= data.diagnosis %></textarea> <br>
         
-                            <label for="date"> Date </label> <br>
-                            <input type="text" name="date" value="<%= data.date%>"> <br>
-                        </div>
-                        <button type="submit" class="update"> Update </button>
+                      <label for="date"> Date </label> <br>
+                      <input type="text" name="date" value="<%= data.date%>"> <br>            
+                    </div>
         
-        
-                    </form> <br>
-        
-                    <form class="deleteForm" action="/editMalfunctionList/<%= data.id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="ud_btn">Delete</button>
+                    <div class="button-section">
+                    <button type="submit"> Update Details </button>
+                    <form class="deleteForm" action="/updateCar/<%= data.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="ud_btn">Remove </button>
                     </form>
+                    </div>
+        
+                </form>
+            </div>
 
-                </div>
+
             </section>
 
             <footer>
