@@ -2,109 +2,209 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/spec.css" />
+    <script src="https://kit.fontawesome.com/1224b18e51.js" crossorigin="anonymous"></script>
+
+    <title>Car Spec Result</title>
 </head>
+
+
 
 <body>
 
     <header>
-
+        <a href="/"><img src="../../image/logo.png"></a>
+        <nav>
+            <!-- <a href="#">Services</a> -->
+            <a href="/specification">Car Search</a>
+            <a href="/obd">OBD</a>
+            <a href="/aboutus">About Us</a>
+            <a href="/garage" class="before_last"><i class="fas fa-warehouse"></i></a>
+            <a href="/malfunctionList" class="last"><i class="fas fa-wrench"></i></a>
+        </nav>
     </header>
 
 
 
 
+
     <main>
+        <img class="car" src="../../image/boghati5.png" />
 
-
-        <form class="deleteForm" action="/updateCar/<%= data.id %>?_method=DELETE" method="POST">
-            <button type="submit" class="ud_btn">Remove From Garage</button>
-        </form>
-
+        <section class="content">
 
 
 
-        <form class="formUpdate" action="/updateCar/<%= data.id %>?_method=PUT" method="POST">
+            <section class="sudo-main">
 
-            <label for="vin"> VIN </label> <br>
+                <h1>Edit Your Vehicle Info</h1>
 
-            <input name="vin" value="<%=data.vin %>"> <br>
-
-            <input name="make" value="<%= data.make %>">
-
-            <input name="model" value="<%= data.model %>">
-
-            <input name="year" value="<%= data.year %>">
-
-            <input name="price" value="<%= data.price %>">
-
-            <input name="seats" value="<%= data.seats %>">
-
-            <input name="style" value="<%= data.style %>">
-
-            <input name="engine" value="<%= data.engine%>">
-
-            <input name="madeIn" value="<%= data.madein %>">
-
-            <input name="fuelCapacity" value="<%= data.fuelcapacity %>">
-
-            <input name="fuelInternal" value="<%= data.fuelinternal %>">
-
-            <input name="fuelExternal" value="<%= data.fuelexternal %>">
-
-            <input name="transmission" value="<%= data.transmission%>">
-
-            <input name="alloy_wheels" value="<%= data.alloy_wheels %>">
-
-            <input name="automatic_headlights" value="<%= data.automatic_headlights %>">
-
-            <input name="cd_player" value="<%= data.cd_player %>">
-
-            <input name="child_safety_door_locks" value="<%= data.child_safety_door_locks %>">
-
-            <input name="fogLights" value="<%= data.foglights %>">
-
-            <input name="cruise_control" value="<%= data.cruise_control %>">
-
-            <input name="driverAirbag" value="<%= data.driverairbag %>">
-
-            <input name="cooled_seat" value="<%= data.cooled_seat %>">
-
-            <input name="heated_seat" value="<%= data.heated_seat %>">
-
-            <input name="parkingAid" value="<%= data.parkingaid %>">
-
-            <input name="genuine_wood_trim" value="<%= data.genuine_wood_trim %>">
-
-            <input name="heated_exterior_mirror" value="<%= data.heated_exterior_mirror %>">
-
-            <input name="heated_steering_wheel" value="<%= data.heated_steering_wheel %>">
-
-            <input name="keyless_entry" value="<%= data.keyless_entry %>">
-
-            <input name="leather_seat" value="<%= data.leather_seat %>">
-
-            <input name="navigation_aid" value="<%= data.navigation_aid %>">
-
-            <input name="power_windows" value="<%= data.power_windows %>">
-
-            <button type="submit"> Update Car Details </button>
-
-        </form>
+                <div>
+                    <p>
+                        <%=data.vin %>
+                    </p>
 
 
+                    <form class="formUpdate" action="/updateCar/<%= data.id %>?_method=PUT" method="POST">
+
+                        <label for="vin"> VIN </label> <br>
+
+                        <input name="vin" value="<%=data.vin %>"> <br>
+
+                        <input name="make" value="<%= data.make %>">
+
+                        <input name="model" value="<%= data.model %>">
+
+                        <input name="year" value="<%= data.year %>">
+
+                        <input name="price" value="<%= data.price %>">
+
+                        <input name="seats" value="<%= data.seats %>">
+
+                        <input name="style" value="<%= data.style %>">
+
+                        <input name="engine" value="<%= data.engine%>">
+
+                        <input name="madeIn" value="<%= data.madein %>">
+
+                        <input name="fuelCapacity" value="<%= data.fuelcapacity %>">
+
+                        <input name="fuelInternal" value="<%= data.fuelinternal %>">
+
+                        <input name="fuelExternal" value="<%= data.fuelexternal %>">
+
+                        <input name="transmission" value="<%= data.transmission%>">
+
+                        <input name="alloy_wheels" value="<%= data.alloy_wheels %>">
+
+                        <input name="automatic_headlights" value="<%= data.automatic_headlights %>">
+
+                        <input name="cd_player" value="<%= data.cd_player %>">
+
+                        <input name="child_safety_door_locks" value="<%= data.child_safety_door_locks %>">
+
+                        <input name="fogLights" value="<%= data.foglights %>">
+
+                        <input name="cruise_control" value="<%= data.cruise_control %>">
+
+                        <input name="driverAirbag" value="<%= data.driverairbag %>">
+
+                        <input name="cooled_seat" value="<%= data.cooled_seat %>">
+
+                        <input name="heated_seat" value="<%= data.heated_seat %>">
+
+                        <input name="parkingAid" value="<%= data.parkingaid %>">
+
+                        <input name="genuine_wood_trim" value="<%= data.genuine_wood_trim %>">
+
+                        <input name="heated_exterior_mirror" value="<%= data.heated_exterior_mirror %>">
+
+                        <input name="heated_steering_wheel" value="<%= data.heated_steering_wheel %>">
+
+                        <input name="keyless_entry" value="<%= data.keyless_entry %>">
+
+                        <input name="leather_seat" value="<%= data.leather_seat %>">
+
+                        <input name="navigation_aid" value="<%= data.navigation_aid %>">
+
+                        <input name="power_windows" value="<%= data.power_windows %>">
+
+                        <button type="submit"> Update Car Details </button>
+
+                    </form>
 
 
 
+                    <form class="deleteForm" action="/updateCar/<%= data.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="ud_btn">Remove From Garage</button>
+                    </form>
+
+
+
+                </div>
+
+            </section>
+
+            <footer>
+                <div>
+                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="google"><i class="fa fa-google"></i></a>
+                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                </div>
+
+                <div class="copy-right">
+                    <p>Copyright 2021 &copy; All Rights Reserved</p>
+                </div>
+            </footer>
+
+        </section>
+
+
+
+        <section class="blue-section">
+            <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
+                <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+                <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136"></circle>
+                <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">
+
+                    <%= data.engine.slice(0,5) %>
+
+                </text>
+            </svg>
+
+            <svg class="radial-progress" data-percentage="42" viewBox="0 0 80 80">
+                <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+                <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136"></circle>
+                <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">
+                    <%= data.fuelinternal.slice(0,2)+' mi/gal'%>
+                </text>
+            </svg>
+
+            <svg class="radial-progress" data-percentage="62" viewBox="0 0 80 80">
+                <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+                <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136"></circle>
+                <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">
+                    <%= data.fuelexternal.slice(0,2)+' mi/gal'%>
+                </text>
+            </svg>
+
+            <svg class="radial-progress" data-percentage="72" viewBox="0 0 80 80">
+                <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+                <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136"></circle>
+                <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">
+                    <%= data.fuelCapacity %>
+                </text>
+            </svg>
+
+            <p class="data1"><span>Engine</span> <br />
+                <%= data.engine %>
+            </p>
+            <p class="data2"><span>Fuel Internal</span> <br />
+                <%= data.fuelInternal%>
+            </p>
+            <p class="data3">
+                <span>Fuel Capacity</span> <br />
+                24.00 gallon
+            </p>
+
+            <h3>
+                <%= data.make%>
+                    <%= data.model %>
+            </h3>
+        </section>
 
     </main>
 
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+        crossorigin="anonymous"></script>
+    <script src="../../js/ring.js"></script>
 </body>
 
 </html>
