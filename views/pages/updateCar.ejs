@@ -65,9 +65,9 @@
                         <div class="section"><span>2</span>Car Equipment & Options</div>
 
                         <div class="inner-wrap">
-                            <label for="">Seats Number</label>
+                            <label for="">Fuel Consumption External</label>
 
-                            <input name="seats" value="<%= data.seats %>">
+                            <input name="fuelExternal" value="<%= data.fuelexternal %>">
 
                             <label for="">Car Body</label>
 
@@ -129,15 +129,24 @@
 
                             <input name="navigation_aid" value="<%= data.navigation_aid %>">
                         </div>
-
                         <div class="button-section">
                             <button type="submit"> Update Car Details </button>
-                            <form class="deleteForm" action="/updateCar/<%= data.id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="ud_btn">Remove From Garage</button>
-                            </form>
                         </div>
 
+
+
                     </form>
+                    <div class="button-section">
+
+                        <form class="deleteForm" action="/updateCar/<%= data.id %>?_method=DELETE" method="POST">
+                            <button id="deleteCar" type="submit" class="ud_btn">Remove the Vehicle</button>
+                        </form>
+
+                    </div>
+
+
+
+
                 </div>
 
 
@@ -186,7 +195,7 @@
                 <circle class="incomplete" cx="40" cy="40" r="35"></circle>
                 <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136"></circle>
                 <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">
-                    <%= data.fuelexternal.slice(0,2)+' mi/gal'%>
+                    <%= data.fuelexternal.slice(0,2)+' mi/gal'%> 
                 </text>
             </svg>
 
@@ -202,11 +211,11 @@
                 <%= data.engine %>
             </p>
             <p class="data2"><span>Fuel Internal</span> <br />
-                <%= data.fuelInternal%>
+                <%= data.fuelinternal%>
             </p>
             <p class="data3">
-                <span>Fuel Capacity</span> <br />
-                24.00 gallon
+                <span>Fuel External</span> <br />
+                <%= data.fuelexternal %>
             </p>
 
             <h3>
