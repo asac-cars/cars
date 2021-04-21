@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/editObd.css">
-    <title>Document</title>
+    <title>Edit OBD</title>
 </head>
 
 <body>
@@ -23,8 +23,8 @@
                     <label for="diagnosis"> Issue</label> <br>
                     <textarea name="diagnosis" cols="30" rows="5"><%= data.diagnosis %></textarea> <br>
 
-                    <label for="text"> Date </label> <br>
-                    <input name="date" value="<%= data.date%>"> <br>
+                    <label for="date"> Date </label> <br>
+                    <input type="text" name="date" value="<%= data.date%>"> <br>
                 </div>
                 <button type="submit" class="update"> Update </button>
 

@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-        <link rel="stylesheet" href="../../css/reset.css">
-        <link rel="stylesheet" href="../../css/history.css">
-        <script src="https://kit.fontawesome.com/1224b18e51.js" crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/history.css">
+    <script src="https://kit.fontawesome.com/1224b18e51.js" crossorigin="anonymous"></script>
 
-        <title>Charging Map</title>
-    </head>
+    <title>Charging Map</title>
+</head>
 
 <body>
 
     <header>
         <a href="/"><img src="../../image/logo.png"></a>
         <nav>
-          <!-- <a href="#">Services</a> -->
-          <a href="/specification">Car Search</a>
-          <a href="/obd">OBD</a>
-          <a href="/aboutus">About Us</a>
-          <a href="/garage"><i class="fas fa-warehouse"></i> <%= carLength%></a>
-          <a href="/malfunctionList"><i class="fas fa-wrench"></i> <%= obdLength%></a>
+            <!-- <a href="#">Services</a> -->
+            <a href="/specification">Car Search</a>
+            <a href="/obd">OBD</a>
+            <a href="/aboutus">About Us</a>
+            <a href="/garage" class="before_last"><i class="fas fa-warehouse"></i>
+                <%=carLength%>
+            </a>
+            <a href="/malfunctionList" class="last"><i class="fas fa-wrench"></i>
+                <%= obdLength %>
+            </a>
         </nav>
-      </header>
+    </header>
+
     <section class="hero">
         <div class="div-heading">
             <h1>Charging STATIONS</h1>
@@ -35,14 +40,16 @@
         <div class="form">
             <!-- <img src="../../image/patteren3.png"> -->
             <h2>
-                Look for the nearby EV Charging stations by just providing your location. 
+                Look for the nearby EV Charging stations by just providing your location.
             </h2>
         </div>
     </section>
 
 
-    <iframe  src="https://map.openchargemap.io/?mode=embedded" allow="geolocation" frameborder="0" width="100%" height="750px"></iframe>
+    <iframe src="https://map.openchargemap.io/?mode=embedded" allow="geolocation" frameborder="0" width="100%"
+        height="750px"></iframe>
 
 
 </body>
+
 </html>

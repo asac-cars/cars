@@ -18,44 +18,48 @@
     <header>
         <a href="/"><img src="../../image/logo.png"></a>
         <nav>
-          <!-- <a href="#">Services</a> -->
-          <a href="/specification">Car Search</a>
-          <a href="/obd">OBD</a>
-          <a href="/aboutus">About Us</a>
-          <a href="/garage"><i class="fas fa-warehouse"></i> <%=carLength%> </a>
-          <a href="/malfunctionList"><i class="fas fa-wrench"></i> <%=obdLength%></a>
+            <!-- <a href="#">Services</a> -->
+            <a href="/specification">Car Search</a>
+            <a href="/obd">OBD</a>
+            <a href="/aboutus">About Us</a>
+            <a href="/garage" class="before_last"><i class="fas fa-warehouse"></i>
+                <%=carLength%>
+            </a>
+            <a href="/malfunctionList" class="last"><i class="fas fa-wrench"></i>
+                <%= obdLength %>
+            </a>
         </nav>
-      </header>
+    </header>
 
-        <main>
-            <section class="hero">
-                <div class="div-heading">
-                    <div class="heading1">
+    <main>
+        <section class="hero">
+            <div class="div-heading">
+                <div class="heading1">
                     <h1>Vehicle History</h1>
                     <h2>Get access to a comprehensive set of history records for used and new cars by VIN based on sales
                         data
                         stored in database.
                     </h2>
                 </div>
-                </div>
+            </div>
 
-                <div class="form">
-                    <img src="../../image/patteren3.png">
-                    <!-- <form action="/historyData">
+            <div class="form">
+                <img src="../../image/patteren3.png">
+                <!-- <form action="/historyData">
                     <input type="text" name="vin" id="" placeholder="Insert the VIN">
             
                     <button type="submit"> EXPLORE </button>
             
                 </form> -->
-                    <form action="/historyData" >
-                        <input type="text" name="vin" id="" placeholder="VIN Code">
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
-            </section>
+                <form action="/historyData">
+                    <input type="text" name="vin" id="" placeholder="VIN Code">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </section>
 
 
-        </main>
+    </main>
 
 </body>
 

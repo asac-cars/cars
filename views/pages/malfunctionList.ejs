@@ -1,53 +1,85 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/malfunction.css">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="malfunc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/1224b18e51.js" crossorigin="anonymous"></script>
+
 </head>
+
 <body>
+    <div class="logo">
+    <a href="/"><img src="../../image/logo.png"></a>
+    </div>
+
     <header>
 
-        <h2>
-            Number of Saved Malfunctions: <%= count %> 
-        </h2>
+        <h1>
+            Malfunction List
+        </h1>
 
+
+      <nav>
+        <a href="/specification">Car Search</a>
+        <a href="/obd">OBD</a>
+        <a href="/aboutus">About Us</a>
+        <a href="/garage" class="before_last"><i class="fas fa-warehouse"></i>
+        </a>
+        <a href="/malfunctionList" class="last"><i class="fas fa-wrench"></i>
+        </a>
+      </nav>
     </header>
 
     <main>
+        <section class="cars">
+
+            <% data.forEach(e=> { %>
+
+            <div class="card">
+                <img class="shape" src="../../image/shapes.png">
+                <img class="icon" src="../../image/drive.png">
+                <h3><%= e.code %></h3>
+                <p><%= e.diagnosis %></p>
+                <h4><%= e.date %></h4>
+                <div class="btn">
+                    <button type="button"><a href="/editMalfunctionList/<%=e.id%>"> Update Malfunction </a> </button>
+                </div>
+            </div>
+
+            <% }); %>
 
 
 
-        <% data.forEach(e=>{ %>
-
-            <section class="obdContainer">
-
-                <p>
-                    OBD CODE: <%= e.code %> 
-                </p>
-
-                <h3>
-                    Issue: <%= e.diagnosis %> 
-                </h3>
-
-                <h4>
-                    Date Of Issue: <%= e.date %> 
-                </h4>
-
-                <button type="button"><a href="/editMalfunctionList/<%=e.id%>"> Update Malfunction </a> </button>
-
-
-
-
-            </section>
-
-        <% }) %> 
+        </section>
 
     </main>
 
-    <footer>
 
+    <footer>
+        <div>
+            <div>
+                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="google"><i class="fa fa-google"></i></a>
+                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <div class="copy-right">
+            <p>Copyright 2021 &copy; All Rights Reserved</p>
+        </div>
     </footer>
 </body>
+
 </html>

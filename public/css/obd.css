@@ -1,135 +1,123 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  
-  /*---------content*/
-  
-  .content{
-    background-color: #e6e7e8;
-    height: 90%;
+  box-sizing: border-box;
+}
+
+/*---------content*/
+
+.content {
+  background-color: #e6e7e8;
+  height: 90%;
   display: grid;
   grid-template-rows: 10% 65.5% auto;
-  }
-  
-  main {
-    display: grid;
-    grid-template-columns: 65% 35%;
-  }
-  
-  /* Car specifications/ Heading */
-  
-  .sudo-main div {
-    padding-top: 4%;
-    display: flex;
-    justify-content: center;
-    
-  }
-  
-  button {
-      box-shadow: 0px -3px 7px 0px #5b5c5c;
-      background:linear-gradient(to bottom, rgb(83, 83, 104) 5%, #012a4e 100%);
-      background-color:#2dabf9;
-      border-radius:3px;
-      border:1px solid #6d6c6c;
-      display:inline-block;
-      cursor:pointer;
-      color:#ffffff;
-      font-family:Arial;
-      font-size:15px;
-      padding:1.5%;
-      text-decoration:none;
-      text-shadow:0px 1px 0px #263666;
-    transition: transform .7s;
-  }
-  
-  button:hover {
-    transform: scale(1.019);
-    opacity: .9; 
-  }
-  
-  .sudo-main div p {
-    margin-right: .5em;
-    display: inline-block;
-    font-size: 1.2em;
-    font-weight: bold;
-    border: .1em solid rgb(199, 198, 198);
-    background-color: rgb(192, 170, 191);
-    padding: .4em;
-    margin-bottom: 2%;
-  
-    
-  }
-  
-  
-  
-  .sudo-main h1 {
-    display: inline-block;
-    font-size: 2.4em;
-    border-bottom: .1em solid navy;
-    line-height: 1.5em;
-    margin-right: 1.2em;
-    margin-left: 1.2em;
-    margin-top: 5%;
-    margin-bottom: 0%;
-    padding-right: .3em;
-    padding-left: .4em;
-    border-radius: 0% 0% 10% 10%;
-    color: #272626;
-    text-shadow: 1px 1px 1.5px rgba(46, 46, 46, 0.85);
-    font-weight: bold;
-  }
-  
-  
-  /*nav*/
-  
-  header {
-    display: grid;
-    grid-template-columns: 25% 75%;
-    background-color: rgb(218, 198, 218);
-    padding: 2.2vh;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  height: 650px;
+}
+
+/* Car specifications/ Heading */
+
+.sudo-main div {
+  padding-top: 4%;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  box-shadow: 0px -3px 7px 0px #5b5c5c;
+  background: linear-gradient(to bottom, rgb(83, 83, 104) 5%, #012a4e 100%);
+  background-color: #2dabf9;
+  border-radius: 3px;
+  border: 1px solid #6d6c6c;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 1.5%;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #263666;
+  transition: transform .7s;
+}
+
+button:hover {
+  transform: scale(1.019);
+  opacity: .9;
+}
+
+.sudo-main div p {
+  margin-right: .5em;
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: .1em solid rgb(199, 198, 198);
+  background-color: rgb(192, 170, 191);
+  padding: .4em;
+  margin-bottom: 2%;
+}
+
+.sudo-main h1 {
+  display: inline-block;
+  font-size: 2.4em;
+  border-bottom: .1em solid navy;
+  line-height: 1.5em;
+  margin-right: 1.2em;
+  margin-left: 1.2em;
+  margin-top: 5%;
+  margin-bottom: 0%;
+  padding-right: .3em;
+  padding-left: .4em;
+  border-radius: 0% 0% 10% 10%;
+  color: #272626;
+  text-shadow: 1px 1px 1.5px rgba(46, 46, 46, 0.85);
+  font-weight: bold;
+}
+
+/*nav*/
+
+header {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  background-color: rgb(218, 198, 218);
+  padding: 2.2vh;
   box-shadow: 10px 16px 22px -21px rgba(110, 110, 110, 0.58);
-  }
-  
-  
-  header img {
-    width: 13vw;
-    }
-    
-    nav {
-      display: grid;
-      grid-template-columns: auto auto auto auto auto;
-  margin-top: 2%; 
+}
+
+header img {
+  width: 13vw;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  margin-top: 2%;
   text-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.85);
-  
-    }
-    
-    nav a {
-      text-decoration: none;
-      font-size: 1.6vw;
-      color: white;
-    }
-    
-    
-  
-  /*----------blue section */
-  
-  .blue-section{
-    background-image: url(../image/blue-sec.png);
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    padding-left: 28%;
-    padding-top: 10%;
-    height: 90%;
-    box-shadow: -9px 3px 18px -8px #000000;}
-  
-  
-  
-  
-  
-  /*footer*/
-  footer {
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1.6vw;
+  color: white;
+}
+
+/*----------blue section */
+
+.blue-section {
+  background-image: url(../image/blue-sec.png);
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  padding-left: 28%;
+  padding-top: 10%;
+  height: 90%;
+  box-shadow: -9px 3px 18px -8px #000000;
+}
+
+/*footer*/
+
+footer {
   background-color: rgb(218, 198, 218);
   padding: 1.1%;
   height: 100%;
@@ -137,117 +125,116 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  }
-  
-  footer a {
-    cursor: pointer;
-    margin: 0.7em ;
-    color: rgb(1, 1, 104);
-  }
-  
-  footer div {
-    margin: .7%;
-  }
-  
-  
-  
-  /*table*/
-  .tables {
+}
+
+footer a {
+  cursor: pointer;
+  margin: 0.7em;
+  color: rgb(1, 1, 104);
+}
+
+footer div {
+  margin: .7%;
+}
+
+/*table*/
+
+.tables {
   padding: 3%;
   padding-bottom: 0%;
-  }
-  
-  table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 85%;
-    padding: 0%;
-    
-  }
-  
-   table td,  table th {
-    border: 1px solid #ddd;
-    padding: 3%;
-    word-wrap: break-word;
-  }
-  
-  table tr:nth-child(even){background-color: #f2f2f2;}
-  
-  table tr:hover {background-color: #ddd;}
-  
-  table th {
-    text-align: left;
-    background-color: #6f5e74;
-    color: white;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  
-  
-  button {
-    padding:7% 3%;
-    width: 10em;
-  }
-  
-  
-  main {
-    display: grid;
-    grid-template-columns: 70% 30%;
-  }
-  
-  
-  .tech {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 5.5em;
-    z-index: 1;
-    opacity: .5;
-  
-  }
-  .dot {
-    position: absolute;
-    right: 4em;
-    top: 1em;
-    width: 4em;
-    opacity: .9;
-    transform: rotate(9deg);
-    z-index: 1;
-  }
-  
-  .tech2 {
-    position: absolute;
-    right: 16em;
-    bottom: .8em;
-    width: 8.5em;
-  }
-  
-  .man {
-    position: absolute;
-    right: 12em;
-    bottom: .8em;
-    width: 32%;
-    z-index: 2;
-  }
-  
-  .circle {
-    position: absolute;
-    right:10.3em;
-    bottom: 0em;
-    padding:5.2em;
-    border: 5px solid blueviolet;
-    border-radius: 50% 50% 50% 0%;
-    background:  blueviolet;
-    opacity:.3;
-  }
-  
-  .code {
-    position: relative;
-    z-index: 1;
-  background: linear-gradient(45deg, #4e68b8 0%, #5267A4 29%, #C5C3C1 100%);margin-top:9em;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 85%;
+  padding: 0%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 3%;
+  word-wrap: break-word;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #ddd;
+}
+
+table th {
+  text-align: left;
+  background-color: #6f5e74;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  padding: 7% 3%;
+  width: 10em;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+.tech {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 5.5em;
+  z-index: 1;
+  opacity: .5;
+}
+
+.dot {
+  position: absolute;
+  right: 4em;
+  top: 1em;
+  width: 4em;
+  opacity: .9;
+  transform: rotate(9deg);
+  z-index: 1;
+}
+
+.tech2 {
+  position: absolute;
+  right: 16em;
+  bottom: .8em;
+  width: 8.5em;
+}
+
+.man {
+  position: absolute;
+  right: 12em;
+  bottom: .8em;
+  width: 32%;
+  z-index: 2;
+}
+
+.circle {
+  position: absolute;
+  right: 10.3em;
+  bottom: 0em;
+  padding: 5.2em;
+  border: 5px solid blueviolet;
+  border-radius: 50% 50% 50% 0%;
+  background: blueviolet;
+  opacity: .3;
+}
+
+.code {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(45deg, #4e68b8 0%, #5267A4 29%, #C5C3C1 100%);
+  margin-top: 9em;
   height: 52%;
   width: 53%;
   margin-left: 15%;
@@ -257,9 +244,9 @@
   align-items: center;
   padding: 51% .1%;
   border-radius: 1em;
-  }
-  
-  h4 {
+}
+
+h4 {
   background-color: rgb(249, 248, 250);
   margin: 2%;
   width: 85%;
@@ -267,63 +254,80 @@
   font-size: 2.5em;
   font-weight: bold;
   color: rgb(17, 18, 27);
-  text-shadow: 0px 0px 4px rgba(150, 150, 150, 1);padding: 1.5% 0%;
+  text-shadow: 0px 0px 4px rgba(150, 150, 150, 1);
+  padding: 1.5% 0%;
   border-radius: .1em;
   border: 3.2px ridge #ece5e5;
   border-radius: 4px;
   font-family: 'Coda Caption', sans-serif;
-  }
-  
-  header{
-    height: fit-content;
-  }
-  
-  footer {
-    margin-top:5%;
-    height: 60%;
-  }
+}
 
-  .code h4 {
+header {
+  height: fit-content;
+}
+
+footer {
+  margin-top: 7%;
+  height: 60%;
+  margin-bottom: 0;
+}
+
+.code h4 {
+  opacity: 0;
+  transform: translate(0, 20vh);
+  transition: all 2s;
+}
+
+.code h4 .visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.code h4 {
+  opacity: 0;
+  animation: fadeIn 1s ease-in both;
+}
+
+.code h4 {
+  animation-delay: 500ms;
+}
+
+.code h4:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.code h4:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.code h4:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.code h4:nth-child(5) {
+  animation-delay: 4s;
+}
+
+.code h4:nth-child(6) {
+  animation-delay: 5s;
+}
+
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    transform: translate(0, 20vh);
-    transition: all 2s;
+    transform: translate3d(0, -20%, 0);
   }
-  .code h4 .visible {
+  to {
     opacity: 1;
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
   }
+}
 
-  .code h4 {
-    
-    opacity: 0;
-    animation: fadeIn 1s ease-in both;
-  }
-  .code h4 {
-    animation-delay: 500ms;
-  }
-  .code h4:nth-child(2) {
-    animation-delay: 1s;
-  }
-  .code h4:nth-child(3) {
-    animation-delay: 2s;
-  }
-  .code h4:nth-child(4) {
-    animation-delay: 3s;
-  }
-  .code h4:nth-child(5) {
-    animation-delay: 4s;
-  }
-  .code h4:nth-child(6) {
-    animation-delay: 5s;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translate3d(0, -20%, 0);
-    }
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
+.last {
+  column-gap: 7vw;
+  margin-left: -2.5rem;
+}
+
+.before_last {
+  column-gap: 3rem;
+}
