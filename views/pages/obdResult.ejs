@@ -22,15 +22,18 @@
         <section class="content">
 
             <header>
-                <img src="../../image/logo.png" />
+                <a href="/"><img src="../../image/logo.png"></a>
                 <nav>
-                    <a href="#">Home</a>
-                    <a href="#">Services</a>
-                    <a href="#">Car Search</a>
-                    <a href="#">OBD</a>
-                    <a href="#">Contact</a>
+                  <!-- <a href="#">Services</a> -->
+                  <a href="/specification">Car Search</a>
+                  <a href="/obd">OBD</a>
+                  <a href="/aboutus">About Us</a>
+                  <!-- <a href="/garage" class="before_last"><i class="fas fa-warehouse"></i>
+                  </a>
+                  <a href="/malfunctionList" class="last"><i class="fas fa-wrench"></i>
+                  </a> -->
                 </nav>
-            </header>
+              </header>
 
 
             <section class="sudo-main">
@@ -105,11 +108,11 @@
 
             <!-- port view -->
             <div class="code">
-                <h4>P</h4>
-                <h4>1</h4>
-                <h4>3</h4>
-                <h4>0</h4>
-                <h4>5</h4>
+                <h4><%= data.code.split('')[0] %></h4>
+                <h4><%= data.code.split('')[1] %></h4>
+                <h4><%= data.code.split('')[2] %></h4>
+                <h4><%= data.code.split('')[3] %></h4>
+                <h4><%= data.code.split('')[4] %></h4>
             </div>
 
         </section>

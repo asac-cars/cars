@@ -1,62 +1,93 @@
+<!-- ------------------------------------ -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/garage.css">
     <title>Garage</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/1224b18e51.js" crossorigin="anonymous"></script>
+
 </head>
+
+
+
 <body>
-    <h1>My Garage</h1>
-    <h2>
-        Saved Cars: <%= count %>
-    </h2>
+    <div class="logo">
+
+        <a href="/"><img src="../../image/logo.png"></a>
+
+    </div>
+
+    <header>
+
+      <h1>Garage</h1>
+      <nav>
+        <a href="/specification">Car Search</a>
+        <a href="/obd">OBD</a>
+        <a href="/aboutus">About Us</a>
+        <a href="/garage" class="before_last"><i class="fas fa-warehouse"></i>
+        </a>
+        <a href="/malfunctionList" class="last"><i class="fas fa-wrench"></i>
+        </a>
+      </nav>
+    </header>
+
 
     <main>
-        <main>
-            <% cars.forEach(e => { %>
-            
-                <section class="container">
+        <section class="cars">
 
+            <% cars.forEach(e=> { %>
+
+                <div class="card">
+                    <img class="shape" src="../../image/shapes.png">
+                    <img class="icon" src="../../image/car2-icon.png">
+                    <h3>
+                        <%= e.make %>
+                            <%= e.made %>
+                    </h3>
                     <p>
-                        Result For : <%=e.vin %>
+                        <%= e.price %>
                     </p>
-            
-                    <h3>
-                        Make: <%= e.make %>
-                    </h3>
-            
-                    <h3>
-                        Model: <%= e.model %>
-                    </h3>
-            
-                    <h3>
-                        Year: <%= e.year %>
-                    </h3>
-            
-                    <h3>
-                        Suggested Price: <%= e.price %>
-                    </h3>
-            
-                    <h3>
-                        Number Of Seats: <%= e.seats %>
-                    </h3>
-            
-                    <h3>
-                        Car Body : <%= e.style %>
-                    </h3>
-
-                    <button type="button"><a href="/myCars/<%=e.id%>"> View Car Details </a> </button>
-                    <button type="button"> <a href="/updateCar/<%=e.id%>"> Update Car</a></button>
-
-
-
-                </section>
-                
-
+                    <h4>
+                        <%= e.madein%>
+                    </h4>
+                    <div class="btn">
+                        <button type="submit"><a href="/myCars/<%=e.id%>">View Details</a></button>
+                        <button type="submit"><a href="/updateCar/<%=e.id%>">Update</a></button>
+                    </div>
+                </div>
 
             <% }); %>
-        </main>
+
+        </section>
+
+
+
     </main>
+
+
+    <footer>
+        <div>
+            <div>
+                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="google"><i class="fa fa-google"></i></a>
+                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <div class="copy-right">
+            <p>Copyright 2021 &copy; All Rights Reserved</p>
+        </div>
+    </footer>
 </body>
+
 </html>

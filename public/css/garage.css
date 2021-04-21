@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e6e7e8;
+    display: grid;
+    grid-template-rows: 40% auto 15%;
+}
+
+.cars {
+    margin: 0% 8%;
+    margin-top: .5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+    border-radius: 3%;
+    margin-top: 2%;
+    border-top: 23px groove #4d60b3;
+    display: flex;
+    flex-direction: column;
+    height: 19em;
+    width: 15em;
+    background: linear-gradient(45deg, #96C6FF 0%, #C4C3EB 71%, #CEE6DF 100%);
+    /* background-color: rgba(153, 161, 177, 0.9); */
+    box-shadow: 0px 0px 17px -5px #000000;
+}
+
+.card .icon {
+    width: 6em;
+    margin-left: 4em;
+    margin-bottom: .5em;
+}
+
+.card .shape {
+    width: 8em;
+}
+
+.card h3 {
+    margin: 0 auto;
+    /* margin-left: 2.8em; */
+}
+
+.card p {
+    margin: .7em auto 0;
+}
+
+.card h4 {
+    margin: .7em auto 0;
+}
+
+/* button*/
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    box-shadow: 0px -3px 7px 0px #5b5c5c;
+    background: linear-gradient(to bottom, rgb(83, 83, 104) 5%, #012a4e 100%);
+    background-color: #2dabf9;
+    border-radius: 3px;
+    border: 1px solid #6d6c6c;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 12px;
+    width: 40%;
+    padding: 2% 5%;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #263666;
+    transition: transform .7s;
+    margin: 1%;
+    margin-top: 6%;
+}
+
+button:hover {
+    transform: scale(1.019);
+}
+
+button a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/*--------------------nav */
+
+header {
+    display: flex;
+    column-gap: 27vw;
+    z-index: 1;
+    /* padding: 1%; */
+    background-color: #b4c3f0;
+    background-image: url(../image/hero5.png);
+    height: 15em;
+    box-shadow: 0px 7px 12px -7px #000000;
+}
+
+.logo {
+    position: absolute;
+    top: 0%;
+    z-index: 2;
+    width: 17%;
+    margin: 1%;
+}
+
+.logo img{
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Squada One', cursive;
+    position: absolute;
+    top: 23vh;
+    /* left:7em; */
+    font-size: 5.5vw;
+    color: #2d2668;
+    text-shadow: -1px 1px 3px rgba(30, 35, 31, 0.98);
+    background-color: rgba(232, 247, 253, 0.5);
+    display: block;
+    box-shadow: 1px -5px 15px -10px #000000;
+    padding: 0% 42.95%;
+    padding-bottom: 0.5rem;
+    padding-top: 1%;
+    font-weight: bolder;
+    border-radius: 6% 6% 0% 0%;
+}
+
+nav {
+    margin-left: 55%;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    column-gap: 4vw;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1.6vw;
+    color: rgb(238 238 238);
+    text-shadow: -1px 1px 3px rgba(30, 35, 31, 0.98);
+}
+
+.last {
+    column-gap: 7vw;
+    margin-left: -2.5rem;
+}
+
+.before_last {
+    column-gap: 3rem;
+}
+
+/*footer*/
+
+footer {
+    margin-top: 3%;
+    background-color: #d6d9db;
+    padding: 1.1%;
+    height: 85%;
+    box-shadow: 10px 16px 22px -21px rgba(110, 110, 110, 0.58);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer a {
+    cursor: pointer;
+    margin: 0.7em;
+    color: rgb(1, 1, 104);
+}
+
+footer div {
+    margin-bottom: .7em;
+}

@@ -1,26 +1,21 @@
 #HImage {
-    height: 17.5rem;
-    background-image: linear-gradient(
-        to left,
-        rgba(84, 223, 179, 0.199),
-        rgba(77, 95, 112, 0.164)
-      ),
-    url("../image/aboutus.png");
-    background-size: cover;
-    position: relative;
-    opacity: 80%;
-  }
-  
-  #HImage h2 {
-    position: absolute;
+  height: 25rem;
+  background-image: linear-gradient( to left, rgba(84, 223, 179, 0.199), rgba(77, 95, 112, 0.164)), url("../image/about-us.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+#HImage h1 {
+  color: #012a4e;
+  font-size: 4.5rem;
+  /* position: absolute;
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #f3eded;
     font-size: 30pt;
-    font-weight: bold;
-  }
-
+    font-weight: bold; */
+}
 
 #v {
   padding-top: 40px;
@@ -106,15 +101,14 @@
   color: #646363;
 }
 
-#teamCards div img,
-#teamCards div h5,
-#teamCards div h6,
-#teamCards div a {
+#teamCards div img, #teamCards div h5, #teamCards div h6, #teamCards div a {
   margin: 10px 10px;
 }
+
 #teamCards div img {
   margin-top: 20px;
 }
+
 #ourTeam .pimg {
   border-radius: 50%;
   width: 50%;
@@ -125,12 +119,14 @@
   color: #43cea2;
   font-size: 17pt;
 }
+
 #teamCards a i:hover {
   color: #185a9d;
   transition-duration: 360ms;
 }
 
 /* Bob */
+
 @-webkit-keyframes hvr-bob {
   0% {
     -webkit-transform: translateY(-8px);
@@ -145,6 +141,7 @@
     transform: translateY(-8px);
   }
 }
+
 @keyframes hvr-bob {
   0% {
     -webkit-transform: translateY(-8px);
@@ -159,18 +156,21 @@
     transform: translateY(-8px);
   }
 }
+
 @-webkit-keyframes hvr-bob-float {
   100% {
     -webkit-transform: translateY(-8px);
     transform: translateY(-8px);
   }
 }
+
 @keyframes hvr-bob-float {
   100% {
     -webkit-transform: translateY(-8px);
     transform: translateY(-8px);
   }
 }
+
 .hvr-bob {
   display: inline-block;
   vertical-align: middle;
@@ -178,9 +178,8 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
-.hvr-bob:hover,
-.hvr-bob:focus,
-.hvr-bob:active {
+
+.hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
   -webkit-animation-name: hvr-bob-float, hvr-bob;
   animation-name: hvr-bob-float, hvr-bob;
   -webkit-animation-duration: 0.3s, 1.5s;
@@ -201,4 +200,17 @@
   border-radius: 50%;
   width: 50%;
   height: auto;
+}
+
+.last {
+  column-gap: 7vw;
+  margin-left: -2.5rem;
+}
+
+.before_last {
+  column-gap: 3rem;
+}
+
+nav a{
+  color: #012a4e;
 }
