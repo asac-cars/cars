@@ -17,7 +17,8 @@ body {
 
 .card {
     border-radius: 3%;
-    margin-top: 2%;
+    /* margin-top: 2%; */
+    margin: 2% auto 0;
     border-top: 23px groove #4d60b3;
     display: flex;
     flex-direction: column;

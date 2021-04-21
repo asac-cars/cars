@@ -75,18 +75,46 @@ button:hover {
 
 /*nav*/
 
-header {
+/* header {
   display: grid;
   grid-template-columns: 25% 75%;
   background-image: url('../image/hero5.png');
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 80%;
-  /* background-color: rgb(218, 198, 218); */
+  background-color: rgb(218, 198, 218);
   padding: 2.2vh;
   height: 12rem;
-  /* height: 95%; */
+  height: 95%;
   box-shadow: 10px 16px 22px -21px rgba(110, 110, 110, 0.58);
+}
+
+header img {
+  width: 13vw;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  margin-top: 2%;
+  text-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.85);
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1.6vw;
+  color: white;
+} */
+
+header {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  background-color: rgb(218, 198, 218);
+  padding: 2.2vh;
+  height: 95%;
+  box-shadow: 10px 16px 22px -21px rgba(110, 110, 110, 0.58);
+  -webkit-box-shadow: 3px 24px 35px -20px rgba(0,0,0,0.37); 
+  box-shadow: 3px 24px 35px -20px rgba(0,0,0,0.37);
 }
 
 header img {
@@ -108,15 +136,15 @@ nav a {
 
 /*----------blue section */
 
+/*----------blue section */
 .car {
   position: absolute;
-  left: 54%;
-  top: 35%;
-  width: 21%;
-  z-index: 2;
+left:54%;
+top: 13.5%;
+width:21%;
 }
 
-.blue-section {
+.blue-section{
   background-image: url(../image/blue-sec.png);
   background-repeat: no-repeat;
   display: flex;
@@ -125,9 +153,7 @@ nav a {
   padding-top: 10%;
   height: 100%;
   box-shadow: -9px 3px 18px -8px #000000;
-  opacity: 85%;
 }
-
 /*data cards*/
 
 .blue-section p {
@@ -149,15 +175,15 @@ nav a {
 }
 
 .data1 {
-  top: 17em;
+  top: 10em;
 }
 
 .data2 {
-  top: 27em;
+  top: 20em;
 }
 
 .data3 {
-  top: 37em;
+  top: 29em;
 }
 
 .blue-section p span {
@@ -170,7 +196,7 @@ nav a {
 
 h3 {
   position: absolute;
-  bottom: -5em;
+  bottom: 0;
   right: 1.1em;
   font-size: 1.8em;
   word-wrap: break-word;
@@ -308,10 +334,10 @@ margin-left: -20px;
   column-gap: 3rem !important;
 } */
 
-.fa-wrench{
+.fa-wrench {
   margin-left: -100px;
 }
 
-.fa-warehouse{
+.fa-warehouse {
   margin-right: -35px;
 }

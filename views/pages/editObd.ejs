@@ -1,50 +1,124 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/editObd.css">
-    <title>Edit OBD</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/obd.css">
+    <title>OBD Result</title>
 </head>
 
-<body>
 
+
+<body>
     <main>
 
-        <div class="formObd">
-            <form action="/editMalfunctionList/<%= data.id %>?_method=PUT" method="POST">
-                <div class="data">
-                    <label for="name"> Name </label> <br>
-                    <input name="code" value="<%= data.code %>"> <br>
+        <section class="content">
+
+            <header>
+                <a href="/"><img src="../../image/logo.png"></a>
+                <nav>
+                    <!-- <a href="#">Services</a> -->
+                    <a href="/specification">Car Search</a>
+                    <a href="/obd">OBD</a>
+                    <a href="/aboutus">About Us</a>
+                    <!-- <a href="/garage" class="before_last"><i class="fas fa-warehouse"></i>
+                  </a>
+                  <a href="/malfunctionList" class="last"><i class="fas fa-wrench"></i>
+                  </a> -->
+                </nav>
+            </header>
 
 
-                    <label for="diagnosis"> Issue</label> <br>
-                    <textarea name="diagnosis" cols="30" rows="5"><%= data.diagnosis %></textarea> <br>
+            <section class="sudo-main">
 
-                    <label for="date"> Date </label> <br>
-                    <input type="text" name="date" value="<%= data.date%>"> <br>
+                <h1>Edit Car Issue</h1>
+
+                <div>
+
+                    <form action="/editMalfunctionList/<%= data.id %>?_method=PUT" method="POST">
+                        <div class="data">
+                            <label for="name"> Name </label> <br>
+                            <input name="code" value="<%= data.code %>"> <br>
+        
+        
+                            <label for="diagnosis"> Issue</label> <br>
+                            <textarea name="diagnosis" cols="30" rows="5"><%= data.diagnosis %></textarea> <br>
+        
+                            <label for="date"> Date </label> <br>
+                            <input type="text" name="date" value="<%= data.date%>"> <br>
+                        </div>
+                        <button type="submit" class="update"> Update </button>
+        
+        
+                    </form> <br>
+        
+                    <form class="deleteForm" action="/editMalfunctionList/<%= data.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="ud_btn">Delete</button>
+                    </form>
+
                 </div>
-                <button type="submit" class="update"> Update </button>
+            </section>
+
+            <footer>
+                <div>
+                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="google"><i class="fa fa-google"></i></a>
+                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                </div>
+
+                <div class="copy-right">
+                    <p>Copyright 2021 &copy; All Rights Reserved</p>
+                </div>
+            </footer>
+
+        </section>
 
 
-            </form> <br>
 
-            <form class="deleteForm" action="/editMalfunctionList/<%= data.id %>?_method=DELETE" method="POST">
-                <button type="submit" class="ud_btn">Delete</button>
-            </form>
+        <section class="blue-section">
+            <!-- shapes: -->
+            <img class="dot" src="../../image/patteren3.png">
+            <img class="man" src="../../image/man3.png">
+            <img class="tech" src="../../image/art2.png" />
+            <img class="tech2" src="../../image/art4.png" />
+            <div class="circle"></div>
 
-        </div>
+            <!-- port view -->
+            <div class="code">
+                <h4>
+                    <%= data.code.split('')[0] %>
+                </h4>
+                <h4>
+                    <%= data.code.split('')[1] %>
+                </h4>
+                <h4>
+                    <%= data.code.split('')[2] %>
+                </h4>
+                <h4>
+                    <%= data.code.split('')[3] %>
+                </h4>
+                <h4>
+                    <%= data.code.split('')[4] %>
+                </h4>
+            </div>
 
-
-
+        </section>
     </main>
 
-
-
-    </main>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+        crossorigin="anonymous"></script>
+    <script src="../../js/ring.js"></script>
 </body>
 
 </html>
