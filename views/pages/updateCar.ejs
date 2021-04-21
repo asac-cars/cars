@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../../css/reset.css" />
-    <link rel="stylesheet" href="../../css/spec.css" />
+    <link rel="stylesheet" href="../../css/updatecar.css" />
     <script src="https://kit.fontawesome.com/1224b18e51.js" crossorigin="anonymous"></script>
 
     <title>Car Spec Result</title>
@@ -42,91 +42,107 @@
 
             <section class="sudo-main">
 
-                <h1>Edit Your Vehicle Info</h1>
+                <div class="form-style-10">
+                    <h1>Edit Car Information</h1>
+                    <form action="/updateCar/<%= data.id %>?_method=PUT" method="POST">
 
-                <div>
-                    <p>
-                        <%=data.vin %>
-                    </p>
+                        <div class="section"><span>1</span>Car Specifications</div>
+                        <div class="inner-wrap">
+                            <label for="make">Make</label>
+                            <input name="make" value="<%= data.make %>">
 
+                            <label for="">Model</label>
+                            <input name="model" value="<%= data.model %>">
 
-                    <form class="formUpdate" action="/updateCar/<%= data.id %>?_method=PUT" method="POST">
+                            <label for="">Year</label>
+                            <input name="year" value="<%= data.year %>">
 
-                        <label for="vin"> VIN </label> <br>
+                            <label for="">Price</label>
 
-                        <input name="vin" value="<%=data.vin %>"> <br>
+                            <input name="price" value="<%= data.price %>">
+                        </div>
 
-                        <input name="make" value="<%= data.make %>">
+                        <div class="section"><span>2</span>Car Equipment & Options</div>
 
-                        <input name="model" value="<%= data.model %>">
+                        <div class="inner-wrap">
+                            <label for="">Seats Number</label>
 
-                        <input name="year" value="<%= data.year %>">
+                            <input name="seats" value="<%= data.seats %>">
 
-                        <input name="price" value="<%= data.price %>">
+                            <label for="">Car Body</label>
 
-                        <input name="seats" value="<%= data.seats %>">
+                            <input name="style" value="<%= data.style %>">
 
-                        <input name="style" value="<%= data.style %>">
+                            <label for="">Engine</label>
 
-                        <input name="engine" value="<%= data.engine%>">
+                            <input name="engine" value="<%= data.engine%>">
 
-                        <input name="madeIn" value="<%= data.madein %>">
+                            <label for="">Made In</label>
 
-                        <input name="fuelCapacity" value="<%= data.fuelcapacity %>">
+                            <input name="madeIn" value="<%= data.madein %>">
 
-                        <input name="fuelInternal" value="<%= data.fuelinternal %>">
+                            <label for="">Fuel Capacity</label>
 
-                        <input name="fuelExternal" value="<%= data.fuelexternal %>">
+                            <input name="fuelCapacity" value="<%= data.fuelcapacity %>">
 
-                        <input name="transmission" value="<%= data.transmission%>">
+                            <label for="fuelInternal">Fuel Internal</label>
 
-                        <input name="alloy_wheels" value="<%= data.alloy_wheels %>">
+                            <input name="fuelInternal" value="<%= data.fuelinternal %>">
 
-                        <input name="automatic_headlights" value="<%= data.automatic_headlights %>">
+                            <label for="transmission">Transmission</label>
 
-                        <input name="cd_player" value="<%= data.cd_player %>">
+                            <input name="transmission" value="<%= data.transmission%>">
 
-                        <input name="child_safety_door_locks" value="<%= data.child_safety_door_locks %>">
+                            <label for="cd_player">CD Player</label>
 
-                        <input name="fogLights" value="<%= data.foglights %>">
+                            <input name="cd_player" value="<%= data.cd_player %>">
 
-                        <input name="cruise_control" value="<%= data.cruise_control %>">
+                            <label for="child_safety_door_locks">Door Locks</label>
 
-                        <input name="driverAirbag" value="<%= data.driverairbag %>">
+                            <input name="child_safety_door_locks" value="<%= data.child_safety_door_locks %>">
 
-                        <input name="cooled_seat" value="<%= data.cooled_seat %>">
+                            <label for="fogLights">Fog Lights</label>
 
-                        <input name="heated_seat" value="<%= data.heated_seat %>">
+                            <input name="fogLights" value="<%= data.foglights %>">
 
-                        <input name="parkingAid" value="<%= data.parkingaid %>">
+                            <label for="cruise_control">Cruise Control</label>
 
-                        <input name="genuine_wood_trim" value="<%= data.genuine_wood_trim %>">
+                            <input name="cruise_control" value="<%= data.cruise_control %>">
 
-                        <input name="heated_exterior_mirror" value="<%= data.heated_exterior_mirror %>">
+                            <label for="driverAirbag">Driver Airbag</label>
 
-                        <input name="heated_steering_wheel" value="<%= data.heated_steering_wheel %>">
+                            <input name="driverAirbag" value="<%= data.driverairbag %>">
 
-                        <input name="keyless_entry" value="<%= data.keyless_entry %>">
+                            <label for="parkingAid">Parking Aid</label>
 
-                        <input name="leather_seat" value="<%= data.leather_seat %>">
+                            <input name="parkingAid" value="<%= data.parkingaid %>">
 
-                        <input name="navigation_aid" value="<%= data.navigation_aid %>">
+                            <label for="heated_exterior_mirror">Heated Exterior Mirror</label>
 
-                        <input name="power_windows" value="<%= data.power_windows %>">
+                            <input name="heated_exterior_mirror" value="<%= data.heated_exterior_mirror %>">
 
-                        <button type="submit"> Update Car Details </button>
+                            <label for="keyless_entry">Keyless Entry</label>
+
+                            <input name="keyless_entry" value="<%= data.keyless_entry %>">
+
+                            <label for="navigation_aid">Navigation Aid</label>
+
+                            <input name="navigation_aid" value="<%= data.navigation_aid %>">
+                        </div>
+
+                        <div class="button-section">
+                            <button type="submit"> Update Car Details </button>
+                            <form class="deleteForm" action="/updateCar/<%= data.id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="ud_btn">Remove From Garage</button>
+                            </form>
+                        </div>
 
                     </form>
-
-
-
-                    <form class="deleteForm" action="/updateCar/<%= data.id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="ud_btn">Remove From Garage</button>
-                    </form>
-
-
-
                 </div>
+
+
+
+
 
             </section>
 
