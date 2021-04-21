@@ -42,7 +42,7 @@
 
                 <div class="form-style-10">
                     <h1>Edit OBD Malfunction Info</h1>
-                <form action="/updateCar/<%= data.id %>?_method=PUT" method="POST">
+                <form action="/editMalfunctionList/<%= data.id %>?_method=PUT" method="POST">
         
                     <div class="section"><span><div class="dott"></div>
         
@@ -61,12 +61,19 @@
         
                     <div class="button-section">
                     <button type="submit"> Update Details </button>
-                    <form class="deleteForm" action="/updateCar/<%= data.id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="ud_btn">Remove </button>
-                    </form>
                     </div>
         
                 </form>
+
+                <div class="button-section">
+                    <form class="deleteForm" action="/editMalfunctionList/<%= data.id %>?_method=DELETE" method="POST">
+
+                        <button id="remove" type="submit" class="ud_btn">Remove </button>
+                    </form>
+
+                </div>
+
+
             </div>
 
 

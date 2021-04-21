@@ -479,3 +479,11 @@ textarea {
   border-radius: 50%;
   display: inline-block;
 }
+
+#remove{
+	margin-top: 20px;
+}
+
+button{
+	margin-left: 103px;
+}
