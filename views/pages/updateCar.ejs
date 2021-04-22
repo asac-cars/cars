@@ -48,6 +48,9 @@
 
                         <div class="section"><span>1</span>Car Specifications</div>
                         <div class="inner-wrap">
+                            <label for="vin">VIN</label>
+                            <input name="vin" value="<%= data.vin %>">
+
                             <label for="make">Make</label>
                             <input name="make" value="<%= data.make %>">
 
@@ -128,6 +131,10 @@
                             <label for="navigation_aid">Navigation Aid</label>
 
                             <input name="navigation_aid" value="<%= data.navigation_aid %>">
+
+                            <label for="heated_seat">Heated Seats</label>
+
+                            <input name="heated_seat" value="<%= data.heated_seat %>">
                         </div>
                         <div class="button-section">
                             <button type="submit"> Update Car Details </button>
